@@ -24,10 +24,19 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    @apply transition-colors duration-300 ease-in-out;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.light {
+  @apply bg-white text-black;
+}
+
+.dark {
+  @apply bg-black text-white;
 }
