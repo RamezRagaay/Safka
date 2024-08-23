@@ -5,8 +5,19 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        primary: {
+          light: "#ffffff",
+          dark: "#252728",
+          DEFAULT: "#ffffff",
+        },
+        secondary: {
+          DEFAULT: "#B0C2F2",
+        }
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
