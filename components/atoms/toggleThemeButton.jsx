@@ -1,7 +1,7 @@
 
 "use client"
 import { useState, useEffect } from "react";
-const ToggleThemeButton = () => {
+const ToggleThemeButton = ({display}) => {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const ToggleThemeButton = () => {
 
     return (
         <button
-            className="text-2xl"
+            className={`text-2xl ${display}`}
             onClick={() => {
                 setDarkMode(!darkMode);
             }}
