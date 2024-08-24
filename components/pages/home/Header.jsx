@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <section className='dark:text-white dark:bg-primary-dark'>
-        <div className=' flex justify-between container mx-auto'>
+        <div className=' flex justify-between container'>
             <div className=''>
             <img className='w-[183px] h-[232px] absolute top-[200px] left-[358px]' src="https://s3-alpha-sig.figma.com/img/9059/4344/22e74cf3ca49096bd8d1ef2a707a3efc?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=i3c0Kw9GaSp22ucD9e~QL-R6OLS90irQZoYNDBYo5skY5JfebzqrNvjQGzqjjZOfdqkJfMa6nc~JLpjonp-CRWMMkcKEvQfjBanbh4vTNnFVkNFB1-cbUVTNiW61z2yB6gaGOnNIJ8KfX3-4bKAH7oesBSTAa8pcZBNrJPdRtd0Q-bCU30ufn~oXmncpUR~-UJhY5GDu49MlS0593WT8Cxohn1tNlWGsr84VM8hYZ31uKGngF04RVqjNWQn1pmOTaUTeUIkJBPRZYl~98Rm4UifbKZgGa3Uf3Scdb-sWxGqukqsuJS0ybin-RiYP7YDE2qefSwcs-Vwg~7lBZqfT4g__" alt="store img" />
 

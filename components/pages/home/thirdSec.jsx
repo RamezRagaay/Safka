@@ -2,7 +2,7 @@ import React from 'react'
 
 const ThirdSec = () => {
   return (
-    <section className='container mx-auto py-[250px] flex flex-col'>
+    <section className='container py-[250px] flex flex-col'>
         <div className='flex justify-between'>
             <img className='w-[595px]' src="https://www.figma.com/file/bHDnxNFUleVaB9r06h89WL/image/afbb12243f2dfd9e2c8dc015660d94b5c135943b" alt="store img" />
 

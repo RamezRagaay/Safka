@@ -2,7 +2,7 @@ import React from 'react'
 
 const SecondSec = () => {
   return (
-    <section className='container mx-auto mt-[250px] flex flex-col'>
+    <section className='container mt-[250px] flex flex-col'>
         <div className='flex justify-between'>
 
             <div className='flex flex-col items-end justify-center'>
