@@ -3,7 +3,7 @@ import Footer from "@/components/shared/Footer";
 
 export default function RootLayout({ children }) {
     return (
-      <div className="bg-secondary min-h-screen">
+      <div className="min-h-screen">
         <NavBar/>
           {children}
         <Footer/>
