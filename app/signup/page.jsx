@@ -1,12 +1,13 @@
-import ToggleThemeButton from '@/components/atoms/toggleThemeButton'
-import SignUpForm from '@/components/pages/signup/SignUpForm'
 import React from 'react'
+import LeftPanel from '@/components/pages/signup/LeftPanel'
+import RightPanel from '@/components/pages/signup/RightPanel'
+
 
 const page = () => {
   return (
-    <div>
-      <ToggleThemeButton display={"hidden"}/>
-      <SignUpForm />
+    <div className='flex h-screen'>
+            <RightPanel />
+            <LeftPanel />
     </div>
   )
 }

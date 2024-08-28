@@ -1,3 +1,5 @@
+const { Limelight } = require('next/font/google');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -5,7 +7,6 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
   theme: {
     container: {
       center: true,
@@ -15,14 +16,30 @@ module.exports = {
       },
     },
     extend: {
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
       colors: {
         primary: {
-          light: "#ffffff",
-          dark: "#252728",
-          DEFAULT: "#ffffff",
+          DEFAULT: "#FE9800",
+          dark: "#B36300",
         },
         secondary: {
-          DEFAULT: "#B0C2F2",
+          DEFAULT: "#F5F4F4",
+        },
+        light: {
+          DEFAULT: "#FFFEFE",
         }
       },
       backgroundImage: {
@@ -32,5 +49,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

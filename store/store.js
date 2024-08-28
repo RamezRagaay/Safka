@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { combineReducers } from "redux"
 import { persistStore, persistReducer } from "redux-persist"
-import themeReducer from "./features/Theme/themeSlice"
 import storage from "redux-persist/lib/storage"
 
 const persistConfig = {
@@ -10,7 +9,7 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    theme: themeReducer,
+
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

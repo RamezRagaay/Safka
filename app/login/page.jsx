@@ -1,12 +1,13 @@
-import LoginForm from '@/components/pages/login/LoginForm'
 import React from 'react'
-import ToggleThemeButton from './../../components/atoms/toggleThemeButton';
+import LeftPanel from '@/components/pages/login/LeftPanel'
+import RightPanel from '@/components/pages/login/RightPanel'
+
 
 const page = () => {
   return (
-    <div className='dark:bg-primary-dark'>
-      <ToggleThemeButton display={"hidden"}/>
-      <LoginForm />
+    <div className='flex h-screen'>
+            <RightPanel />
+            <LeftPanel />
     </div>
   )
 }
