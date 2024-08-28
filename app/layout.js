@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ClientProvider from "@/components/clientProvider";
+// import ClientProvider from "@/components/clientProvider";
 import { cn } from "@/lib/utils"
 
 
@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
         <body >
-          <ClientProvider>
+          {/* <ClientProvider> */}
               {children}
-          </ClientProvider>
+          {/* </ClientProvider> */}
         </body>
     </html>
   );

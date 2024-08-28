@@ -27,10 +27,9 @@ const RightPanel = () => {
     <div className="flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
       <h2 className="text-2xl mb-6">تسجيل الدخول</h2>
       <div className="flex gap-4 mb-6">
-        <button className="bg-secondary px-6 py-3 rounded-2xl flex items-center font-medium text-sm">
+        <button className="bg-secondary px-6 py-3 rounded-2xl flex gap-3 items-center font-medium text-sm">
             تسجيل دخول باستخدام جوجل
-
-            <FcGoogle fontSize={16}/>
+            <FcGoogle fontSize={22}/>
         </button>
       </div>
       <form className="w-full max-w-xs">

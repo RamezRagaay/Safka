@@ -22,18 +22,20 @@ const NavBar = () => {
             </div>
           </button>
         </Link>
-        <button>
-          <div className='relative'> 
-            <FiHeart size={30} className='text-white' />
-            <p className='text-sm absolute -top-2 -right-2 bg-white w-5 h-5 rounded-full text-primary'>0</p>
-          </div>
-        </button>
-        <button>
-          <div className='relative'> 
-            <BsCart3 size={30} className='text-white' />
-            <p className='text-sm absolute -top-2 -right-2 bg-white w-5 h-5 rounded-full text-primary'>0</p>
-          </div>
-        </button>
+        <div className='flex gap-4'>
+          <button>
+            <div className='relative'> 
+              <FiHeart size={30} className='text-white' />
+              <p className='text-sm absolute -top-2 -right-2 bg-white w-5 h-5 rounded-full text-primary'>0</p>
+            </div>
+          </button>
+          <button>
+            <div className='relative'> 
+              <BsCart3 size={30} className='text-white' />
+              <p className='text-sm absolute -top-2 -right-2 bg-white w-5 h-5 rounded-full text-primary'>0</p>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   )

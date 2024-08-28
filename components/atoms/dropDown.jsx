@@ -25,19 +25,19 @@ export function DropdownMenuRadioGroupDemo({values}) {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 max-h-60 overflow-auto">
-        <DropdownMenuRadioGroup value={choice}  onValueChange={setChoice}>
+        <DropdownMenuRadioGroup value={choice} key={choice} onValueChange={setChoice}>
           {
-            values.map((value) => (
-              <>
-              <DropdownMenuRadioItem key={value} value={value} 
-              className="bg-white text-black
-              focus:bg-slate-100 focus:text-slate-900 
-              relative flex cursor-pointer select-none items-center py-1.5 pl-8 pr-2 text-sm outline-none transition-colors
-              ">
-                {value}
-              </DropdownMenuRadioItem>
-              <hr />
-              </>
+            values.map((value, index) => (
+              <React.Fragment key={index}>
+                <DropdownMenuRadioItem value={value} 
+                  className="bg-white text-black
+                  focus:bg-slate-100 focus:text-slate-900 
+                  relative flex cursor-pointer select-none items-center py-1.5 pl-8 pr-2 text-sm outline-none transition-colors
+                  ">
+                  {value}
+                </DropdownMenuRadioItem>
+                <hr />
+              </React.Fragment>
             ))
           }
         </DropdownMenuRadioGroup>
@@ -45,5 +45,3 @@ export function DropdownMenuRadioGroupDemo({values}) {
     </DropdownMenu>
   )
 }
-
-
