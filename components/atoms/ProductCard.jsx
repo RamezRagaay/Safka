@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { FiHeart } from "react-icons/fi";
 import { BsCart3 } from "react-icons/bs";
+import Rating from './Rating';
 
 const ProductCard = () => {
   const [check, setCheck] = useState(false)
@@ -33,7 +34,11 @@ const ProductCard = () => {
       <div className='w-full p-3'>
         <p className='font-bold'>اسم المنتج</p>
         <p>وصف المنتج وصف المنتج وصف المنتج وصف المنتج</p>
-        <p className='font-bold text-primary'>التقييم - عدد التقيمات</p>
+        {/* <p className='font-bold text-primary'>التقييم - عدد التقيمات</p> */}
+        <div className='flex items-center'>
+          <Rating rate={3.75}/>
+          <p className='mr-2 font-normal text-slate-500'>{`(300)`}</p>
+        </div>
         <p className='font-bold text-primary'> ١٠٠٠ ر.س </p>
         <p> <span className='font-bold'>المورد :</span> اسم المورد</p>
       </div>
@@ -42,35 +47,3 @@ const ProductCard = () => {
 }
 
 export default ProductCard
-
-
-
-{/* <div className='h-[260px] w-[270px] relative border-b '>
-        <div className=' h-[260px] w-[270px] flex justify-center items-center p-5'>
-          <img src={item.image} className=' max-h-[75%] max-w-[75%] ' alt="" />
-        </div>
-        <div className={` ${ check ? " opacity-100" : "opacity-0" } flex justify-center gap-3 items-center
-          bg-[rgba(0,0,0,0.2)] h-full w-full absolute top-0 ease-in-out duration-300 ` }>
-          <CardOption check={check} option={1} > <IoIosShuffle size = {"18"} /> </CardOption>
-          <CardOption check={check} option={2} > <AiOutlineZoomIn size = {"18"} /> </CardOption>
-          <CardOption check={check} option={3} > <IoMdHeartEmpty size = {"18"} /> </CardOption>
-        </div>
-      </div> */}
-      
-      
-      // <div className='w-full max-h-1/2 flex justify-center items-center border-b transition-all'>
-      //   {
-      //     open ?
-      //     <div className='flex flex-col justify-center items-center max-h-full'>
-      //       <img src="product-23.jpg" alt=""/> 
-      //       <div className='w-full bg-white flex justify-around items-center'>
-      //         <button className='h-8 w-8 rounded-full hover:bg-primary hover:text-white
-      //         flex justify-center items-center' ><BsCart3 size={15}/></button>
-      //         <button className='h-8 w-8 rounded-full hover:bg-primary hover:text-white 
-      //         flex justify-center items-center' ><FiHeart size={15}/></button>
-      //       </div>
-      //     </div>
-      //     : 
-      //     <img src="product-24.jpg" alt=""/>
-      //   }
-      // </div>
