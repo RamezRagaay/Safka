@@ -1,24 +1,14 @@
 'use client'
 import React, { useState } from 'react'
-import FormOne from './FormOne'
-import FormTwo from './FormTwo'
-import FormThree from './FormThree'
-import FormFour from './FormFour'
-import FormFive from './FormFive'
-import ProgressBar from './progressBar'
+import MultiStepForm from './MultiStepForm'
 
 
 const RightPanel = () => {
 	const [formNumber, setFormNumber] = useState(1)
+	const [formData, setFormData] = useState({})
   return (
     <div className="w-full flex flex-col justify-around items-center bg-white shadow-md flex-[2] select-none h-[1000px]">
-			<h1 className="text-3xl font-bold mb-4"> تسجيل حساب مورد جديد</h1>
-			<ProgressBar formNumber={formNumber}/>
-      {formNumber === 1 && <FormOne setFormNumber={setFormNumber}/>}
-			{formNumber === 2 && <FormTwo setFormNumber={setFormNumber}/>}
-			{formNumber === 3 && <FormThree setFormNumber={setFormNumber}/>}
-			{formNumber === 4 && <FormFour setFormNumber={setFormNumber}/>}
-			{formNumber === 5 && <FormFive setFormNumber={setFormNumber}/>}
+      <MultiStepForm />
     </div>
   )
 }
