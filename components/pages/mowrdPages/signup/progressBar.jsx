@@ -4,7 +4,7 @@ import { MdDone } from "react-icons/md";
 
 const ProgressBar = ({formNumber}) => {
 	return (
-		<div className="relative w-3/4 flex justify-around items-center">
+		<div className="relative w-[60%] flex justify-around items-center left-5">
 			<div className="absolute h-1.5 bottom-0 bg-slate-400 w-full"></div>
 			<div className={`absolute h-1.5 bottom-0 bg-primary transition-all duration-300`}
 			style={

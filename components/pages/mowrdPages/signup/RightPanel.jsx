@@ -9,9 +9,9 @@ import ProgressBar from './progressBar'
 
 
 const RightPanel = () => {
-	const [formNumber, setFormNumber] = useState(5)
+	const [formNumber, setFormNumber] = useState(1)
   return (
-    <div className=" flex flex-col justify-around items-center p-10 bg-white shadow-md flex-[2] select-none">
+    <div className="w-full flex flex-col justify-around items-center bg-white shadow-md flex-[2] select-none h-[1000px]">
 			<h1 className="text-3xl font-bold mb-4"> تسجيل حساب مورد جديد</h1>
 			<ProgressBar formNumber={formNumber}/>
       {formNumber === 1 && <FormOne setFormNumber={setFormNumber}/>}
