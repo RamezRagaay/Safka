@@ -46,7 +46,7 @@ const NavBar = () => {
             <button className='transition-all hover:text-primary font-semibold duration-300'>اخر الاخبار</button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>العروض</button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>
-              <Link href="/supplier/signup">تسجيل
+              <Link href="/supplier/login">تسجيل
                التسجيل كمورد ؟
               </Link>
             </button>

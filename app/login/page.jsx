@@ -2,14 +2,13 @@ import React from 'react'
 import LeftPanel from '@/components/pages/login/LeftPanel'
 import RightPanel from '@/components/pages/login/RightPanel'
 
-
-const page = () => {
+const Page = () => {
   return (
-    <div className='flex h-screen'>
-            <RightPanel />
-            <LeftPanel />
+    <div className='flex flex-col-reverse md:flex-row h-dvh'>
+      <RightPanel />
+      <LeftPanel />
     </div>
   )
 }
 
-export default page
+export default Page

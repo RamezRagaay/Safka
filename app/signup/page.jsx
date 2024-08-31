@@ -5,7 +5,7 @@ import RightPanel from '@/components/pages/signup/RightPanel'
 
 const page = () => {
   return (
-    <div className='flex h-screen'>
+    <div className='flex flex-col-reverse  md:flex-row min-h-dvh'>
             <RightPanel />
             <LeftPanel />
     </div>
