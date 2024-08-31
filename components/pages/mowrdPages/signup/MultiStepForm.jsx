@@ -79,7 +79,6 @@ const MultiStepForm = () => {
             type="submit"
             form={`form-${formNumber}`}
             variant="default"
-            className="bg-blue-500 hover:bg-blue-600 text-white"
           >
             {formNumber === 5 ? 'إرسال' : 'التالي'}
           </Button>
