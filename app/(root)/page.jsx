@@ -1,10 +1,53 @@
+"use client"
 import ProductCard from '@/components/atoms/ProductCard'
 import CategoriesSwiper from '@/components/pages/home/CategoriesSwiper'
 import HeaderSwiper from '@/components/pages/home/HeaderSwiper'
 import OneCategorySwiper from '@/components/pages/home/OneCategorySwiper'
 import React from 'react'
+import { getProducts, getProduct } from '@/services/products'
+import { useEffect, useState } from "react"
 
 const Page = () => {
+  const [products, setProducts] = useState([])
+  const [product, setProduct] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  const productList = async () => {
+    setLoading(true)
+    setError(null)
+    try {
+      const { products } = await getProducts()
+      setProducts(products)
+    } catch (error) {
+      console.error(error)
+      setError(error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const getSingleProduct = async (id) => {
+    try {
+      const { product } = await getProduct(id, {expand: 'seller_id'})
+      setProduct(product)
+      // console.log(product)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  useEffect(() => {
+    productList()
+    getSingleProduct('x4fo6248wjjxltp')
+  }, [])
+
+  useEffect(() => {
+    console.log(products);
+    console.log(product);
+  }, [products, product])
+
   return (
     <div className=''>
       <HeaderSwiper />
