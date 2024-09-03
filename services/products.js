@@ -2,14 +2,31 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('http://jun-truth.gl.at.ply.gg:31897');
 pb.autoCancellation(false);
-export const getProducts = async () => {
-    try {
-      const products = await pb.collection('products').getFullList();
-      return { products };
-    } catch (error) {
-      console.error(error);
-      return { products: [] }; 
-    }
+// export const getProducts = async () => {
+//     try {
+//       const products = await pb.collection('products').getFullList();
+//       return { products };
+//     } catch (error) {
+//       console.error(error);
+//       return { products: [] }; 
+//     }
+// }
+
+export const getProducts = async (params) => {
+  // params : sort -price, priceDesc , createdAtAsc, createdAtDesc
+  try {
+    const products = await pb.collection('products').getList(1, 10, {
+      sort: params.sort,
+      filter: params.filter,
+      perPage: params.perPage,
+      page: params.page,
+      expand: "seller_id"
+    });
+    return { products };
+  } catch (error) {
+    console.error(error);
+    return { products: [] }; 
+  }
 }
 
 export const getProduct = async (id) => {
@@ -23,3 +40,51 @@ export const getProduct = async (id) => {
         return { product: null };
     }
 }
+
+export const createProduct = async (product) => {
+  // TODO: validate product
+  // "product_name": "test",
+  // "quantaty": "test",
+  // "unit": "test",
+  // "price": 123,
+  // "seller_id": "RELATION_RECORD_ID",
+  // "category": "test",
+  // "description": "test"
+  try {
+    const createdProduct = await pb.collection('products').create(product);
+    return { product: createdProduct };
+  } catch (error) {
+    console.error('Error creating product:', error);
+    return { product: null };
+  }
+}
+
+export const updateProduct = async (id, product) => {
+  // TODO: validate product
+  // "product_name": "test",
+  // "quantaty": "test",
+  // "unit": "test",
+  // "price": 123,
+  // "seller_id": "RELATION_RECORD_ID",
+  // "category": "test",
+  // "description": "test"
+  // id : string
+  try {
+    const updatedProduct = await pb.collection('products').update(id, product);
+    return { product: updatedProduct };
+  } catch (error) {
+    console.error('Error updating product:', error);
+    return { product: null };
+  }
+}
+
+export const deleteProduct = async (id) => {
+  try {
+    await pb.collection('products').delete(id);
+    return { success: true };
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    return { success: false };
+  }
+}
+
