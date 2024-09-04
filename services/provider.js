@@ -1,6 +1,9 @@
 import PocketBase from 'pocketbase';
+import dotenv from 'dotenv';
 
-const pb = new PocketBase('http://jun-truth.gl.at.ply.gg:31897');
+dotenv.config();
+
+const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 pb.autoCancellation(false);
 
 export const login = async (data) => {
