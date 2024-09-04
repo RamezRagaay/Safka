@@ -7,11 +7,15 @@ import FormFour from './FormFour';
 import FormFive from './FormFive';
 import ProgressBar from './progressBar';
 import { Button } from "@/components/ui/button";
+import { signup } from '@/services/provider';
+import { Toaster } from "@/components/ui/sonner"
+import { useRouter } from 'next/navigation';
 
 const MultiStepForm = () => {
   const [formNumber, setFormNumber] = useState(1);
   const [formData, setFormData] = useState({});
-
+  
+  const router = useRouter();
   const updateFormData = useCallback((newData) => {
     setFormData((prevData) => {
       const updatedData = { ...prevData, ...newData };
@@ -22,11 +26,24 @@ const MultiStepForm = () => {
 
   const nextStep =  useCallback(async (data) => {
     updateFormData(data);
-    if (formNumber < 5) {
+    if (formNumber < 2) {
       setFormNumber((prev) => prev + 1);
     } else {
-      // Handle final form submission
-      console.log("Final form data:", formData);
+      const dto = { ...formData, 
+        "photo": formData.photo && formData.photo.length > 0 ? formData.photo[0] : null,
+        "emailVisibility": true,
+        "verified_by_representative": "yes"
+      };
+      console.log("dto: ", dto);
+      const { provider } = await signup(dto);
+      console.log(provider);
+      if (provider) {
+        console.log("تم تسجيل الشركة بنجاح");
+        // toast("تم تسجيل الشركة بنجاح");
+        router.push("/supplier/login");
+      } else {
+        // toast("فشل تسجيل الشركة");
+      }
       // Add your submission logic here
     }
   })
@@ -62,6 +79,7 @@ const MultiStepForm = () => {
 
   return (
     <div className="w-full flex flex-col justify-around items-center bg-white shadow-md flex-[2] select-none h-[1000px]">
+      <Toaster />
       <h1 className="text-3xl font-bold mb-4">تسجيل حساب مورد جديد</h1>
       <ProgressBar formNumber={formNumber} />
       <div className='w-[500px] shadowbox px-20 pb-10 pt-10'>
