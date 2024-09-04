@@ -1,6 +1,6 @@
 import PocketBase, { cookieParse } from 'pocketbase';
 
-const pb = new PocketBase('http://jun-truth.gl.at.ply.gg:31897');
+const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 
 
 export const getProductsB2B = async () => {

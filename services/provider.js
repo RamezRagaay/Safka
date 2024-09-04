@@ -1,11 +1,14 @@
 import PocketBase from 'pocketbase';
+import dotenv from 'dotenv';
 
-const pb = new PocketBase('http://jun-truth.gl.at.ply.gg:31897');
+dotenv.config();
+
+const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 pb.autoCancellation(false);
 
-export const login = async (email, password) => {
+export const login = async (data) => {
     try {
-        const authData = await pb.admins.authWithPassword(email, password);
+        const authData = await pb.collection('provider').authWithPassword(data.email, data.password);
         console.log(authData);
         console.log(pb.authStore.token);
         console.log(pb.authStore.model);
@@ -28,7 +31,7 @@ export const logout = async () => {
 
 export const signup = async (data) => {
     try {
-        const provider = await pb.collection('providers').create(data);
+        const provider = await pb.collection('provider').create(data);
         return { provider };
     } catch (error) {
         console.error(error);
@@ -39,7 +42,7 @@ export const signup = async (data) => {
 
 export const getProvider = async () => {
     try {
-        const provider = await pb.collection('providers').getFullList();
+        const provider = await pb.collection('provider').getFullList();
         return { provider };
     } catch (error) {
         console.error(error);
@@ -49,7 +52,7 @@ export const getProvider = async () => {
 
 export const getProviderById = async (id) => {
     try {
-        const provider = await pb.collection('providers').getOne(id);
+        const provider = await pb.collection('provider').getOne(id);
         return { provider };
     } catch (error) {
         console.error(error);
