@@ -7,6 +7,9 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
+// import { useToast } from "@/components/ui/use-toast"
+import { login } from '@/services/provider';
+import Cookies from 'js-cookie';
 
 const RightPanel = () => {
   const router = useRouter();
@@ -25,6 +28,29 @@ const RightPanel = () => {
   const [showPass, setShowPass] = useState(false);
     // TODO: post request for login and get token and save it in local storage or cookie and redirect to home
 
+  const handleLogin = async (data) => {
+    const dto = {
+      "email": data.email,
+      "password": data.password,
+    }
+    console.log(dto);
+    try {
+      const response = await login(dto);
+      
+      if (response.authData.token) {
+        console.log(response);
+        Cookies.set("provider-token", response.authData.token, { expires: 7, secure: true });
+        console.log("token saved");
+        router.push("/");
+        console.log("redirecting to home");
+      }
+      else {
+        console.log("error:" , errors);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className=" flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
       <div className='w-[400px] shadowbox px-20 pb-10 pt-10'>
@@ -35,12 +61,7 @@ const RightPanel = () => {
               <FcGoogle fontSize={22}/>
           </button>
         </div>
-        <form className="w-full max-w-xs" onSubmit={handleSubmit( async (data) => {
-          console.log(data);
-          if (data) {
-            router.push("/");
-          }
-        } )}>
+        <form className="w-full max-w-xs" onSubmit={handleSubmit(handleLogin)}>
           <InputWithLabel lable={"البريد الالكتروني"} placeholder={"example@gmail.com"} id="email" type={"email"} register={register} errors={errors}/>
           <div className='relative'>
             <InputWithLabel lable={"كلمة المرور"} placeholder={"*******"} id="password" type={showPass? "text" : "password"} register={register} errors={errors}/>
