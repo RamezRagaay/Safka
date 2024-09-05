@@ -41,7 +41,7 @@ const RightPanel = () => {
       const dto = {"name": data.name,
         "username": data.username, "email": data.email,
         "password": data.password,
-        "confirmPassword": data.confirmPassword,
+        "passwordConfirm": data.confirmPassword,
         "address": data.address,
         "role" : "customer",
         "is_admin": false
