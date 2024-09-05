@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import Cookies from 'cookies'
 export function middleware(req) {
     // const cookies = new Cookies(req, new NextResponse())
     const provider_token = req.cookies.get('provider-token')

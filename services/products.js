@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://jun-truth.gl.at.ply.gg:31897');
+const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 pb.autoCancellation(false);
 // export const getProducts = async () => {
 //     try {

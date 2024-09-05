@@ -1,11 +1,25 @@
 "use client"
 import Link from "next/link"
 import {useState, useEffect} from "react"
-export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState("dashboard")
+export default function Sidebar({pathname}) {
+
+  const [isOpen, setIsOpen] = useState("")
   const handleClick = (id) => {
     setIsOpen(id)
   }
+
+  useEffect(() => {
+    const path = pathname.split("/");
+    // console.log(path);
+    if(path.length === 3){
+      // console.log("path: ", path);
+      setIsOpen("dashboard")
+    }
+    else{
+      // console.log("path[3]", path[3]);
+      setIsOpen(path[3])
+    }
+  }, [pathname])
 
   return (
     <aside className="inset-y-0 right-0 z-10 flex h-screen w-64 flex-col border-l bg-background">
@@ -18,22 +32,13 @@ export default function Sidebar() {
       <div className="flex-1 overflow-y-auto px-2 py-4">
         <nav className="grid gap-2">
           <Link
-            href="#"
+            href="/supplier/dashboard"
             onClick={() => handleClick("dashboard")}
             className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground cursor-pointer ${isOpen === "dashboard" ? "bg-primary hover:bg-primary/90" : ""}`}
             prefetch={false}
           >
             <HomeIcon className="h-5 w-5" />
             <span>لوحة القيادة</span>
-          </Link>
-            <Link
-                href="#"
-            onClick={() => handleClick("orders")}
-            className={`flex items-center gap-3 rounded-md  px-3 py-2 text-sm font-medium text-primary-foreground transition-colors cursor-pointer ${isOpen === "orders" ? "bg-primary hover:bg-primary/90" : ""}`}
-            prefetch={false}
-          >
-            <ShoppingCartIcon className="h-5 w-5" />
-            <span>الطلبات</span>
           </Link>
           <Link
             href="/supplier/dashboard/products"
@@ -44,6 +49,16 @@ export default function Sidebar() {
             <PackageIcon className="h-5 w-5" />
             <span>المنتجات</span>
           </Link>
+            <Link
+                href="#"
+            onClick={() => handleClick("orders")}
+            className={`flex items-center gap-3 rounded-md  px-3 py-2 text-sm font-medium text-primary-foreground transition-colors cursor-pointer ${isOpen === "orders" ? "bg-primary hover:bg-primary/90" : ""}`}
+            prefetch={false}
+          >
+            <ShoppingCartIcon className="h-5 w-5" />
+            <span>الطلبات</span>
+          </Link>
+          
           <Link
             href="#"
             onClick={() => handleClick("suppliers")}
