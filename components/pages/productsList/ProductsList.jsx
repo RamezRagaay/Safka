@@ -90,9 +90,16 @@ const ProductsList = () => {
         <div className=' border flex flex-col justify-start items-center gap-5'>
           <div className=' grid gap-2 p-5 md:grid-cols-4 grid-cols-1 justify-center items-center'>
             <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
               <div className="space-y-2">
-            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[210px]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[210px]" />
             <Skeleton className="h-4 w-[200px]" />
           </div>
             </div>
@@ -104,46 +111,39 @@ const ProductsList = () => {
           </div>
             </div>
             <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
               <div className="space-y-2">
-            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[210px]" />
             <Skeleton className="h-4 w-[200px]" />
           </div>
             </div>
             <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
               <div className="space-y-2">
-            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[210px]" />
             <Skeleton className="h-4 w-[200px]" />
           </div>
             </div>
             <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
               <div className="space-y-2">
-            <Skeleton className="h-4 w-[200]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
-            </div>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[200] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[210px]" />
             <Skeleton className="h-4 w-[200px]" />
           </div>
             </div>
             
             <div className="flex flex-col space-y-3">
 
-              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
               <div className="space-y-2">
-            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[210px]" />
             <Skeleton className="h-4 w-[200px]" />
           </div>
             </div>
           </div>
           </div>
         :
-        products?.items?.length === 0 ? 
+        products?.items?.length === 0 || products === undefined ? 
           <p>No products found.</p>
         :
         <div className=' border flex flex-col justify-start items-center gap-5'>
