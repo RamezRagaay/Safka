@@ -5,7 +5,7 @@ import PriceFilter from './PriceFilter'
 
 const SideBar = () => {
 	return (
-		<div className='flex flex-col gap-2 border w-60' >
+		<div className='flex flex-col gap-2 border' >
 			<SortFilter/>
 			<hr />
 			<CategoriesFilter />
