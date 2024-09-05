@@ -74,7 +74,7 @@ const ProductsList = () => {
 
   useEffect(() => {
     productList();
-  }, [sort, minPrice, maxPrice, category, perPage, page, expand]); // * Refined dependency array
+  }, [sort, minPrice, maxPrice, category, perPage, page]); // * Refined dependency array
 
 
   useEffect(() => {

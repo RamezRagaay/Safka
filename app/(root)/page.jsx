@@ -66,10 +66,10 @@ const Page = () => {
     <div className=''>
       <HeaderSwiper />
       <CategoriesSwiper/>
-      <OneCategorySwiper title={"أكثر المبيعات"} />
+      {/* <OneCategorySwiper title={"أكثر المبيعات"} />
       <OneCategorySwiper title="الكترونيات"/>
       <OneCategorySwiper title="المنتجات"/>
-      <OneCategorySwiper title="المتاجر"/>
+      <OneCategorySwiper title="المتاجر"/> */}
     </div>
   )
 }
