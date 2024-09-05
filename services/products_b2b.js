@@ -23,11 +23,13 @@ export const getProductB2BById = async (id) => {
     }
 }   
 
-export const getProvidersProductsB2B = async (id) => {
+export const getProvidersProductsB2B = async (id, page) => {
     try {
-        const products = await pb.collection('products_b2b').getList(1, 10, {
+        const perPage = 5;
+        const currPage = parseInt(page) || 1;
+        // console.log(currPage);
+        const products = await pb.collection('products_b2b').getList(currPage, perPage, {
             filter: `provider = "${id}"`,
-            perPage: 5
             // filter: 'price_per_unit >=100 && price_per_unit <= 500 && category = "elecronics"'
         });
         return { products };

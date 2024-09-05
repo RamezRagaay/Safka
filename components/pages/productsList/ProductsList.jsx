@@ -9,7 +9,7 @@ import { useSearchParams } from 'next/navigation';
 // ? getProducts service start.
 import PocketBase from 'pocketbase';
 import ProductsPagintaion from './ProductsPagintaion';
-import { ClipLoader } from 'react-spinners';
+import { SyncLoader } from 'react-spinners';
 const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 pb.autoCancellation(false);
 
@@ -88,9 +88,9 @@ const ProductsList = () => {
       {
         loading ? 
         <div className=' border w-full h-screen flex justify-center items-center'>
-          <ClipLoader
+          <SyncLoader
             color="#FE9800"
-            size={50}
+            size={20}
           />
         </div>
         :

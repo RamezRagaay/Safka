@@ -174,6 +174,7 @@ export default function ProductsPagination({ totalPages }) {
         {pagesToShow.map((page) => (
           <PaginationItem key={page}>
             <PaginationLink
+              
               href="#"
 							className={`${totalPages === 1 ? 'hidden' : ''} cursor-pointer`}
               isActive={currentPage === page}

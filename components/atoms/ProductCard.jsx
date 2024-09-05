@@ -42,7 +42,7 @@ const ProductCard = ({product}) => {
       </div>
 
       <div className='w-full p-3'>
-        <p className='font-bold'>{truncateProductName(product.product_name, 10)}</p>
+        <p className='font-semibold'>{truncateProductName(product.product_name, 10)}</p>
         {/* <p>وصف المنتج وصف المنتج وصف المنتج وصف المنتج</p> */}
         {/* <p className='font-bold text-primary'>التقييم - عدد التقيمات</p> */}
         {/* <div className='flex items-center'>

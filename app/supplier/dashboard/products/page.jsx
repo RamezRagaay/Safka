@@ -13,7 +13,7 @@ const Page = () => {
             <div className='flex items-center justify-between'>
                 <div className='flex flex-col gap-1 p-4'>
                     <h2 className='text-2xl font-semibold'>
-                        المنتجات
+                        منتجاتك 
                     </h2>
                     <p className='text-slate-400 text-md'>إدارة منتجاتك وحذفها وتعديلها</p>
                 </div>
