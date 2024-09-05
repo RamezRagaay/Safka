@@ -7,7 +7,9 @@ export default function RootLayout({ children }) {
     return (
       <div className="min-h-screen flex">
         <Sidebar pathname={pathname}/>
-        {children}
+        <div className='flex-grow'>
+          {children}
+        </div>
       </div>
   );
 }

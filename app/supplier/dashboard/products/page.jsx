@@ -1,15 +1,27 @@
+import { SheetDemo } from '@/components/pages/mowrdPages/dashboard/products/AddProductSheet'
+import ProductsTable from '@/components/pages/mowrdPages/dashboard/products/productsTable'
 import { PlusIcon } from 'lucide-react'
 import React from 'react'
 
 const Page = () => {
   return (
     <>
-        <button className='mt-12 mr-12 flex items-center h-12 gap-2 p-4 rounded-3xl bg-slate-200 text-slate-700 hover:bg-slate-300 transition-all duration-300'>
-            <PlusIcon className='w-8 h-8 rounded-full bg-primary text-slate-100'/>
-            <span className='text-2xl font-semibold'>
-                إضافة منتج
-            </span>
-        </button>
+        <div className=''>
+            <div className='h-16 border-b px-4 flex items-center '>
+                <h1 className='text-2xl font-semibold'>المخزن</h1>
+            </div>
+            <div className='flex items-center justify-between'>
+                <div className='flex flex-col gap-1 p-4'>
+                    <h2 className='text-2xl font-semibold'>
+                        المنتجات
+                    </h2>
+                    <p className='text-slate-400 text-md'>إدارة منتجاتك وحذفها وتعديلها</p>
+                </div>
+                <SheetDemo/>
+                
+            </div>
+            <ProductsTable/>
+        </div>
     </>
 )
 }

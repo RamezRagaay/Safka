@@ -10,13 +10,13 @@ export default function Sidebar({pathname}) {
 
   useEffect(() => {
     const path = pathname.split("/");
-    console.log(path);
+    // console.log(path);
     if(path.length === 3){
-      console.log("path: ", path);
+      // console.log("path: ", path);
       setIsOpen("dashboard")
     }
     else{
-      console.log("path[3]", path[3]);
+      // console.log("path[3]", path[3]);
       setIsOpen(path[3])
     }
   }, [pathname])
