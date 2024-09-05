@@ -42,11 +42,11 @@ const SortFilter = () => {
           <Label className='font-normal' htmlFor="-price">السعر : الاعلي للاقل</Label>
         </div>
         <div className="flex items-center space-x-2 gap-3" dir='rtl'>
-          <RadioGroupItem value="-create" id="-create" />
+          <RadioGroupItem value="-created" id="-create" />
           <Label className='font-normal' htmlFor="-create">التاريخ : الاحدث</Label>
         </div>
         <div className="flex items-center space-x-2 gap-3" dir='rtl'>
-          <RadioGroupItem value="create" id="create" />
+          <RadioGroupItem value="created" id="create" />
           <Label className='font-normal' htmlFor="create"> التاريخ : الأقدم </Label>
         </div>
       </RadioGroup>
