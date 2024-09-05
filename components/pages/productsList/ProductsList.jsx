@@ -4,12 +4,12 @@ import SideBar from './SideBar';
 import ProductCard from '@/components/atoms/ProductCard';
 // import { getProducts } from '@/services/products';
 import { useSearchParams } from 'next/navigation';
-
+import { Skeleton } from "@/components/ui/skeleton"
 
 // ? getProducts service start.
 import PocketBase from 'pocketbase';
 import ProductsPagintaion from './ProductsPagintaion';
-import { SyncLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 pb.autoCancellation(false);
 
@@ -87,12 +87,61 @@ const ProductsList = () => {
       <SideBar />
       {
         loading ? 
-        <div className=' border w-full h-screen flex justify-center items-center'>
-          <SyncLoader
-            color="#FE9800"
-            size={20}
-          />
-        </div>
+        <div className=' border flex flex-col justify-start items-center gap-5'>
+          <div className=' grid gap-2 p-5 md:grid-cols-4 grid-cols-1 justify-center items-center'>
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+            
+            <div className="flex flex-col space-y-3">
+
+              <Skeleton className="h-[125px] w-[200] rounded-xl" />
+              <div className="space-y-2">
+            <Skeleton className="h-4 w-[200]" />
+            <Skeleton className="h-4 w-[200px]" />
+          </div>
+            </div>
+          </div>
+          </div>
         :
         products?.items?.length === 0 ? 
           <p>No products found.</p>
