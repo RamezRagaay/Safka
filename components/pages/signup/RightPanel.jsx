@@ -9,8 +9,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { signup } from '@/services/user';
-
-
+import { toast, Toaster } from 'react-hot-toast';
 const RightPanel = () => {
   const router = useRouter();
 
@@ -50,17 +49,23 @@ const RightPanel = () => {
       
       const user = await signup(dto);
       console.log(user);
+      if (user) {
+        toast.success('تم التسجيل بنجاح!');
+        setTimeout(() => {
+          router.push("/login");
+        }, 1500);
+
+      }
     }
     catch (error) {
       console.error(error);
+      toast.error('حدث خطأ أثناء التسجيل.');
     }
-    finally {
-      console.log("a7aaaa");
-      
-    }
+
   };
   return (
     <div className="flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
+       <Toaster position="bottom-left" reverseOrder={false} />
       <div className='w-[400px] shadowbox px-20 pb-10 pt-10'>
 
         <h2 className="text-2xl mb-6">انشاء حساب</h2>
