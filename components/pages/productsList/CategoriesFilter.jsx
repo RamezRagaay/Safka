@@ -7,6 +7,7 @@ const CategoriesFilter = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
+  // TODO : Handle reset page to 1.
   const handleCategoriesChange = (value) => {
     const current = new URLSearchParams(searchParams);
     if (value) {
