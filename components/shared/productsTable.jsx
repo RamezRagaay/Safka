@@ -37,9 +37,8 @@ import { useEffect, useState } from 'react';
 import { SkeletonBar } from "@/components/shared/skeletonBar"
 import { DeleteItemAlert } from "./DeleteItemAlert"
 import { Pagination } from "@/components/ui/pagination"
-import ProductsPagintaion from './../../../productsList/ProductsPagintaion';
 import { useSearchParams } from "next/navigation"
-
+import ProductsPagination from "@/components/pages/productsList/ProductsPagintaion"
 export default function ProductsTable(){
 
     const providerId = Cookies.get("provider-id");
@@ -161,7 +160,7 @@ export default function ProductsTable(){
                 منتجات
                 </div>
                 <div>
-                    <ProductsPagintaion totalPages={totalPages} />
+                    <ProductsPagination totalPages={totalPages} />
                 </div>
             </CardFooter>
         </Card>
