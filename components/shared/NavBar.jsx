@@ -70,13 +70,18 @@ const NavBar = () => {
       </div>
       <div className='bg-white border-b h-10 flex items-center'>
         <div className='container mx-auto flex items-center'>
-          <div className='flex justify-between items-center w-1/3'>
+          <div className='flex justify-between items-center gap-6 p-2'>
             <button className='transition-all hover:text-primary font-semibold duration-300'>الرئيسية</button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>اخر الاخبار</button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>العروض</button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>
               <Link href="/supplier/login">تسجيل
                التسجيل كمورد ؟
+              </Link>
+            </button>
+            <button className='transition-all hover:text-primary font-semibold duration-300'>
+              <Link href="/seller/login">تسجيل
+               التسجيل كتاجر ؟
               </Link>
             </button>
           </div>

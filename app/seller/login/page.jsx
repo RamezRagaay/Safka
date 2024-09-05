@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftPanel from '@/components/pages/login/LeftPanel'
-import RightPanel from '@/components/pages/login/RightPanel'
+import LeftPanel from '@/components/pages/seller/login/LeftPanel'
+import RightPanel from '@/components/pages/seller/login/RightPanel'
 
 const Page = () => {
   return (
