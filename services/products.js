@@ -12,29 +12,49 @@ pb.autoCancellation(false);
 //     }
 // }
 
+
+// // ? getProducts service start.
+// import PocketBase from 'pocketbase';
+
+// const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
+// pb.autoCancellation(false);
+
 export const getProducts = async (params) => {
-  // params : sort -price, priceDesc , createdAtAsc, createdAtDesc
   try {
-    const products = await pb.collection('products').getList(1, 10, {
+    const products = await pb.collection('products').getList(params.page, params.perPage, {
       sort: params.sort,
       filter: params.filter,
-      perPage: params.perPage,
-      page: params.page,
-      expand: "seller_id"
+      expand: params.expand
     });
     return { products };
   } catch (error) {
     console.error(error);
-    return { products: [] }; 
+    return { products: [] };
   }
-}
+};
+// ? getProducts service end.
+
+// export const getProducts = async (params) => {
+//   // params : sort -price, priceDesc , createdAtAsc, createdAtDesc
+//   try {
+//     const products = await pb.collection('products').getList(1, 10, {
+//       sort: params.sort,
+//       filter: params.filter,
+//       perPage: params.perPage,
+//       page: params.page,
+//       expand: "seller_id"
+//     });
+//     return { products };
+//   } catch (error) {
+//     console.error(error);
+//     return { products: [] }; 
+//   }
+// }
 
 export const getProduct = async (id) => {
     try {
-
-        const product = await pb.collection('products').getOne(id);
-        
-        return { product };
+      const product = await pb.collection('products').getOne(id);
+      return { product };
     } catch (error) {
         console.error('Error fetching product:', error);
         return { product: null };

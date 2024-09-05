@@ -2,31 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import SideBar from './SideBar';
 import ProductCard from '@/components/atoms/ProductCard';
-// import { getProducts } from '@/services/products';
 import { useSearchParams } from 'next/navigation';
 import { Skeleton } from "@/components/ui/skeleton"
-
-// ? getProducts service start.
-import PocketBase from 'pocketbase';
 import ProductsPagintaion from './ProductsPagintaion';
-import { ClipLoader } from 'react-spinners';
-const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
-pb.autoCancellation(false);
-
-export const getProducts = async (params) => {
-  try {
-    const products = await pb.collection('products').getList(params.page, params.perPage, {
-      sort: params.sort,
-      filter: params.filter,
-      expand: params.expand
-    });
-    return { products };
-  } catch (error) {
-    console.error(error);
-    return { products: [] };
-  }
-};
-// ? getProducts service end.
+import { getProducts } from '@/services/products';
 
 
 
@@ -46,13 +25,6 @@ const ProductsList = () => {
 
 
   const  filter = `${minPrice && `price >= ${minPrice}`}${maxPrice && ` && price <= ${maxPrice}`}${ category && (maxPrice || minPrice)&& ` && `}${category && `category = '${category}'`}`
-  // const filter = [
-  //   minPrice && `price >= ${minPrice}`,
-  //   maxPrice && `price <= ${maxPrice}`,
-  //   category && `category = '${category}'`
-  // ]
-  // .filter(Boolean)
-  // .join(' AND '); // Combine filters properly
 
   const paramsObj = { sort, filter, perPage, page, expand };
 
@@ -72,15 +44,31 @@ const ProductsList = () => {
     }
   };
 
+
+  async function productListFetch() {
+    try{
+      const res = await getProducts(paramsObj);
+      setProducts(res.products);
+    }
+    catch(error){
+      console.log(error);
+    }
+    finally{
+      setLoading(false);
+    }
+  }
+
   useEffect(() => {
-    productList();
+    setLoading(true);
+    productListFetch();
   }, [sort, minPrice, maxPrice, category, perPage, page]); // * Refined dependency array
 
 
-  useEffect(() => {
-    console.log("prarams : ", paramsObj);
-    console.log( "products : ", products);
-  }, [products]);
+  // useEffect(() => {
+  //   console.log("prarams : ", paramsObj);
+  //   console.log( "products : ", products);
+  // }, [products]);
+
   return (
     <div className='container mx-auto my-10 flex justify-start items-center'>
       <div className='flex gap-12 w-full'>
