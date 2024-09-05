@@ -50,7 +50,7 @@ const PriceFilter = () => {
           aria-label="Upper Price"
         />
       </Slider.Root>
-      <Button type="submit" onClick={handleSubmit}>تم</Button>
+      <Button type="submit" onClick={handleSubmit}>تصفية بالسعر</Button>
     </div>
   );
 };

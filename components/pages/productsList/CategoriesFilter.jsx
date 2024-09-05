@@ -7,13 +7,15 @@ const CategoriesFilter = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // TODO : Handle reset page to 1.
   const handleCategoriesChange = (value) => {
     const current = new URLSearchParams(searchParams);
     if (value) {
       current.set('categories', value);
-    } else {
+      current.delete('page');
+    } 
+    else {
       current.delete('categories');
+      current.delete('page');
     }
     // Navigate to the new URL with updated search params
     router.push(`?${current.toString()}`);
