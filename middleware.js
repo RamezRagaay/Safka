@@ -8,5 +8,6 @@ export function middleware(req) {
         return NextResponse.redirect(new URL('/supplier/dashboard', req.url))
         }
     }
+    
     return NextResponse.next()
 }
