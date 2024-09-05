@@ -25,7 +25,7 @@ export function SheetDemo() {
         </Button>
         {/* <Button variant="outline">Open</Button> */}
       </SheetTrigger>
-      <SheetContent className=" sm:max-w-[50%]">
+      <SheetContent className=" sm:max-w-[40%]">
         <SheetHeader >
           <SheetTitle className="text-right">اضف منتج جديد</SheetTitle>
           <SheetDescription  className="text-right">

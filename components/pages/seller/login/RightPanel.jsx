@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
-import { login } from '@/services/user';
+import { login } from '@/services/seller';
 import Cookies from 'js-cookie';
 
 const RightPanel = () => {

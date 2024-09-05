@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
-import { signup } from '@/services/user';
+import { signup } from '@/services/seller';
 
 
 const RightPanel = () => {
@@ -43,7 +43,7 @@ const RightPanel = () => {
         "password": data.password,
         "confirmPassword": data.confirmPassword,
         "address": data.address,
-        "role" : "customer",
+        "role" : "seller",
         "is_admin": false
       };
       console.log("dto: ", dto);

@@ -22,7 +22,7 @@ import { deleteProductB2B } from "@/services/products_b2b"
           <AlertDialogHeader>
             <AlertDialogTitle>هل أنت متأكد من حذف المنتج؟</AlertDialogTitle>
             <AlertDialogDescription>
-              هذا الإجراء لا يمكن التراجع عنه. سيتم حذف المنتج بشكل دائم وإزالة البيانات من خوادمنا.
+              هذا الإجراء لا يمكن التراجع عنه. سيتم حذف المنتج بشكل دائم وإزالة بياتات المنتج من المخازن.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
