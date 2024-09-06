@@ -1,29 +1,30 @@
+// ! THIS IS ALPHA VERSION OF NAVBAR FOR PRODUCTLIST B2B ! //
+
 "use client"
 import React, { useEffect, useState } from 'react';
-import SearchWithDropdown from '../atoms/SearchWithDropdown';
+import SearchWithDropdown from '@/components/atoms/SearchWithDropdown';
 import { IoLogOutOutline, IoPersonOutline } from "react-icons/io5";
 import { FiHeart } from "react-icons/fi";
 import { BsCart3 } from "react-icons/bs";
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { logout } from '@/services/user';
+import { useRouter } from 'next/navigation';
 
-// import ToggleThemeButton from '../atoms/toggleThemeButton'
-
-const NavBar = () => {
+const NavbarB2B = () => {
   const [username, setUsername] = useState(null);
-
+  const router = useRouter();
   useEffect(() => {
-    const cookieUsername = Cookies.get("customer-username");
-    setUsername(cookieUsername);
+    const cookieSeller = Cookies.get("seller-username");
+    setUsername(cookieSeller);
   }, []);
 
   const handleLogout = async () => {
     await logout();
-    Cookies.remove("customer-token");
-    Cookies.remove('customer-id');
-    Cookies.remove('customer-username');
-    window.location.reload();
+    Cookies.remove("seller-token");
+    Cookies.remove('seller-id');
+    Cookies.remove('seller-username');
+    router.push("/"); // ? Redirect to home page for customer.
   };
 
   return (
@@ -71,10 +72,15 @@ const NavBar = () => {
       <div className='bg-white border-b h-10 flex items-center'>
         <div className='container mx-auto flex items-center'>
           <div className='flex justify-between items-center gap-6 p-2'>
-            <button className='transition-all hover:text-primary font-semibold duration-300'>الرئيسية</button>
+            <Link href="/seller/dashboard">
+              <button className='transition-all hover:text-primary font-semibold duration-300'>الرئيسية</button>
+            </Link>
             <button className='transition-all hover:text-primary font-semibold duration-300'>اخر الاخبار</button>
-            <button className='transition-all hover:text-primary font-semibold duration-300'>العروض</button>
-            <button className='transition-all hover:text-primary font-semibold duration-300'>
+            <Link href="/seller/products">
+              <button className='transition-all hover:text-primary font-semibold duration-300'>المنتجات</button>
+            </Link>
+            {/* <button className='transition-all hover:text-primary font-semibold duration-300'>العروض</button> */}
+            {/* <button className='transition-all hover:text-primary font-semibold duration-300'>
               <Link href="/supplier/login">
                 التسجيل كمورد ؟
               </Link>
@@ -83,7 +89,7 @@ const NavBar = () => {
               <Link href="/seller/login">
                 التسجيل كتاجر ؟
               </Link>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
@@ -91,4 +97,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavbarB2B;

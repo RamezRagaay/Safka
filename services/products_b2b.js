@@ -3,15 +3,37 @@ import PocketBase, { cookieParse } from 'pocketbase';
 const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 
 pb.autoCancellation(false)
-export const getProductsB2B = async () => {
-    try {
-        const products = await pb.collection('products_b2b').getFullList();
-        return { products };
-    } catch (error) {
-        console.error(error);
-        return { products: [] };
-    }
-}   
+
+
+// export const getProductsB2B = async () => {
+//     try {
+//         const products = await pb.collection('products_b2b').getFullList();
+//         return { products };
+//     } catch (error) {
+//         console.error(error);
+//         return { products: [] };
+//     }
+// }   
+
+
+export const getProductsB2B = async (params) => {
+  try {
+    const products = await pb.collection('products_b2b').getList(params.page, params.perPage, {
+      sort: params.sort,
+      filter: params.filter,
+      expand: params.expand
+    });
+    return { products };
+  } 
+	catch (error) {
+    console.error(error);
+    return { products: [] };
+  }
+};
+
+
+
+
 
 export const getProductB2BById = async (id) => {
     try {

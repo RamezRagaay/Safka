@@ -23,7 +23,6 @@ const ProductsList = () => {
   const page = params.get("page") || 1;
   const expand = params.get("expand") || "seller_id";
 
-
   const  filter = `${minPrice && `price >= ${minPrice}`}${maxPrice && ` && price <= ${maxPrice}`}${ category && (maxPrice || minPrice)&& ` && `}${category && `category = '${category}'`}`
 
   const paramsObj = { sort, filter, perPage, page, expand };
@@ -44,7 +43,6 @@ const ProductsList = () => {
     }
   };
 
-
   async function productListFetch() {
     try{
       const res = await getProducts(paramsObj);
@@ -62,7 +60,6 @@ const ProductsList = () => {
     setLoading(true);
     productListFetch();
   }, [sort, minPrice, maxPrice, category, perPage, page]); // * Refined dependency array
-
 
   // useEffect(() => {
   //   console.log("prarams : ", paramsObj);
