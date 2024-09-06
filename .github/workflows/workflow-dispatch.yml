@@ -1,4 +1,4 @@
-name: Deploy to vercel on merge
+name: Deploy on dispatch
 on:
   workflow-dispatch
 jobs:
