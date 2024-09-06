@@ -27,7 +27,9 @@ import { deleteProduct } from "@/services/products"
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogAction className="ml-auto" onClick={() => {deleteProduct(id);
+            setTimeout(() => {
               window.location.reload();
+            }, 1000);
             }}>حذف المنتج</AlertDialogAction>
             <AlertDialogCancel >الغاء</AlertDialogCancel>
           </AlertDialogFooter>
