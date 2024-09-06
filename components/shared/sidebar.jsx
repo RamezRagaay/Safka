@@ -38,7 +38,7 @@ export default function Sidebar({pathname}) {
             prefetch={false}
           >
             <HomeIcon className="h-5 w-5" />
-            <span>لوحة القيادة</span>
+            <span>بياناتك</span>
           </Link>
           <Link
             href="/supplier/dashboard/products"
@@ -49,7 +49,7 @@ export default function Sidebar({pathname}) {
             <PackageIcon className="h-5 w-5" />
             <span>المنتجات</span>
           </Link>
-            <Link
+            {/* <Link
                 href="#"
             onClick={() => handleClick("orders")}
             className={`flex items-center gap-3 rounded-md  px-3 py-2 text-sm font-medium text-primary-foreground transition-colors cursor-pointer ${isOpen === "orders" ? "bg-primary hover:bg-primary/90" : ""}`}
@@ -57,9 +57,9 @@ export default function Sidebar({pathname}) {
           >
             <ShoppingCartIcon className="h-5 w-5" />
             <span>الطلبات</span>
-          </Link>
+          </Link> */}
           
-          <Link
+          {/* <Link
             href="#"
             onClick={() => handleClick("suppliers")}
             className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground cursor-pointer ${isOpen === "suppliers" ? "bg-primary hover:bg-primary/90" : ""}`}
@@ -67,7 +67,7 @@ export default function Sidebar({pathname}) {
           >
             <UsersIcon className="h-5 w-5" />
             <span>التجار</span>
-          </Link>
+          </Link> */}
           <Link
             href="#"
             onClick={() => handleClick("settings")}
