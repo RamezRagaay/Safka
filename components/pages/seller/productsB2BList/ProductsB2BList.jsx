@@ -6,6 +6,8 @@ import { useSearchParams } from 'next/navigation';
 import { Skeleton } from "@/components/ui/skeleton"
 import ProductsPagintaion from '@/components/pages/productsList/ProductsPagintaion';
 import { getProductsB2B } from '@/services/products_b2b';
+import NavbarB2B from './NavbarB2B';
+import Footer from '@/components/shared/Footer';
 
 
 
@@ -70,81 +72,85 @@ const ProductsList = () => {
   }, [products]);
 
   return (
-    <div className='container mx-auto my-10 flex justify-start items-center'>
-      <div className='flex gap-12 w-full'>
-      <SideBar />
-      {
-        loading ? 
-        <div className=' border flex flex-col justify-start items-center gap-5'>
-          <div className=' grid gap-2 p-5 md:grid-cols-4 grid-cols-1 justify-center items-center'>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[210px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+    <>
+      <NavbarB2B />
+      <div className='container mx-auto my-10 flex justify-start items-center'>
+        <div className='flex gap-12 w-full'>
+        <SideBar />
+        {
+          loading ? 
+          <div className=' border flex flex-col justify-start items-center gap-5'>
+            <div className=' grid gap-2 p-5 md:grid-cols-4 grid-cols-1 justify-center items-center'>
+              <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[210px] rounded-xl" />
+                <div className="space-y-2">
+              <Skeleton className="h-4 w-[210px]" />
+              <Skeleton className="h-4 w-[200px]" />
             </div>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[210px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+              </div>
+              <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[210px] rounded-xl" />
+                <div className="space-y-2">
+              <Skeleton className="h-4 w-[210px]" />
+              <Skeleton className="h-4 w-[200px]" />
             </div>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[200] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[200]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+              </div>
+              <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[200] rounded-xl" />
+                <div className="space-y-2">
+              <Skeleton className="h-4 w-[200]" />
+              <Skeleton className="h-4 w-[200px]" />
             </div>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[210px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+              </div>
+              <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[210px] rounded-xl" />
+                <div className="space-y-2">
+              <Skeleton className="h-4 w-[210px]" />
+              <Skeleton className="h-4 w-[200px]" />
             </div>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[210px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+              </div>
+              <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[210px] rounded-xl" />
+                <div className="space-y-2">
+              <Skeleton className="h-4 w-[210px]" />
+              <Skeleton className="h-4 w-[200px]" />
             </div>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[210px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+              </div>
+              <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[210px] rounded-xl" />
+                <div className="space-y-2">
+              <Skeleton className="h-4 w-[210px]" />
+              <Skeleton className="h-4 w-[200px]" />
             </div>
-            <div className="flex flex-col space-y-3">
-              <Skeleton className="h-[125px] w-[210px] rounded-xl" />
-              <div className="space-y-2">
-            <Skeleton className="h-4 w-[210px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+              </div>
+              <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[210px] rounded-xl" />
+                <div className="space-y-2">
+              <Skeleton className="h-4 w-[210px]" />
+              <Skeleton className="h-4 w-[200px]" />
             </div>
-          </div>
-          </div>
-        :
-        products?.items?.length === 0 || products === undefined ? 
-          <p>No products found.</p>
-        :
-        <div className=' border flex flex-col justify-start items-center gap-5'>
-          <div className=' grid md:grid-cols-4 grid-cols-1 justify-center items-center'>
-              {
-                products?.items?.map((product) => (
-                  <ProductB2BCard key={product.id} product={product} />
-                ))
-              }
-          </div>
-          <ProductsPagintaion totalPages={products.totalPages} />
+              </div>
+            </div>
+            </div>
+          :
+          products?.items?.length === 0 || products === undefined ? 
+            <p>No products found.</p>
+          :
+          <div className=' border flex flex-col justify-start items-center gap-5'>
+            <div className=' grid md:grid-cols-4 grid-cols-1 justify-center items-center'>
+                {
+                  products?.items?.map((product) => (
+                    <ProductB2BCard key={product.id} product={product} />
+                  ))
+                }
+            </div>
+            <ProductsPagintaion totalPages={products.totalPages} />
+        </div>
+        }
+        </div>
       </div>
-      }
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
