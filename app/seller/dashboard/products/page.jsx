@@ -20,8 +20,9 @@ const Page = () => {
                 <SheetDemo/>
                 
             </div>
-            <ProductsTable/>
-        </div>
+            <Suspense>
+                <ProductsTable/>
+            </Suspense>        </div>
     </>
 )
 }
