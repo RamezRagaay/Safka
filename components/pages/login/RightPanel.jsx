@@ -33,6 +33,7 @@ const RightPanel = () => {
       Cookies.set("customer-id", auth.authData.record.id, { expires: 7, secure: true });
       Cookies.set("customer-username", auth.authData.record.username, { expires: 7, secure: true });
       Cookies.set("customer-token", auth.authData.token, { expires: 7, secure: true });
+      Cookies.set("role", "customer", { expires: 7, secure: true });
     }
     catch (error) {
       console.log(error);

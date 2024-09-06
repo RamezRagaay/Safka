@@ -27,7 +27,9 @@ import { deleteProductB2B } from "@/services/products_b2b"
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogAction className="ml-auto" onClick={() => {deleteProductB2B(id);
-              window.location.reload();
+              setTimeout(() => {
+                window.location.reload();
+              }, 1000);
             }}>حذف المنتج</AlertDialogAction>
             <AlertDialogCancel >الغاء</AlertDialogCancel>
           </AlertDialogFooter>

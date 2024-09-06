@@ -5,7 +5,7 @@ const Page = () => {
     <>
         <div>
             <h1>
-                dashboard
+                مرحبا 
             </h1>
         </div>
     </>

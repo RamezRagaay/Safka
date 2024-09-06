@@ -24,13 +24,15 @@ const MultiStepForm = () => {
     });
   }, [formNumber]);
 
-  const nextStep =  useCallback(async (data) => {
-    updateFormData(data);
+  const nextStep = useCallback(async (data) => {
+    const updatedFormData = { ...formData, ...data };
     if (formNumber < 2) {
+      setFormData(updatedFormData);
       setFormNumber((prev) => prev + 1);
     } else {
-      const dto = { ...formData, 
-        "photo": formData.photo && formData.photo.length > 0 ? formData.photo[0] : null,
+      const dto = {
+        ...updatedFormData,
+        "photo": updatedFormData.photo && updatedFormData.photo.length > 0 ? updatedFormData.photo[0] : null,
         "emailVisibility": true,
         "verified_by_representative": "yes"
       };
@@ -39,14 +41,12 @@ const MultiStepForm = () => {
       console.log(provider);
       if (provider) {
         console.log("تم تسجيل الشركة بنجاح");
-        // toast("تم تسجيل الشركة بنجاح");
         router.push("/supplier/login");
       } else {
-        // toast("فشل تسجيل الشركة");
+        // Handle error
       }
-      // Add your submission logic here
     }
-  })
+  }, [formData, formNumber, router]);
 
   const prevStep = useCallback(() => {
     if (formNumber > 1) {
@@ -66,12 +66,12 @@ const MultiStepForm = () => {
         return <FormOne {...props} />;
       case 2:
         return <FormTwo {...props} />;
-      case 3:
-        return <FormThree {...props} />;
-      case 4:
-        return <FormFour {...props} />;
-      case 5:
-        return <FormFive {...props} />;
+      // case 3:
+      //   return <FormThree {...props} />;
+      // case 4:
+      //   return <FormFour {...props} />;
+      // case 5:
+      //   return <FormFive {...props} />;
       default:
         return null;
     }
@@ -98,7 +98,7 @@ const MultiStepForm = () => {
             form={`form-${formNumber}`}
             variant="default"
           >
-            {formNumber === 5 ? 'إرسال' : 'التالي'}
+            {formNumber === 2 ? 'إرسال' : 'التالي'}
           </Button>
         </div>
       </div>

@@ -8,18 +8,22 @@ export default function Sidebar({pathname}) {
     setIsOpen(id)
   }
 
+  const [p, setP] = useState("")
   useEffect(() => {
-    const path = pathname.split("/");
-    // console.log(path);
+    const path = pathname.split("/")
+    const newP = path[1];
+    setP(path[1]); // This will update the state correctly
+  
+    console.log("path: ", path);
+    console.log("p: ", newP); // Log the updated value of 'p'
+  
     if(path.length === 3){
-      // console.log("path: ", path);
-      setIsOpen("dashboard")
+      setIsOpen("dashboard");
+    } else {
+      setIsOpen(path[3]);
     }
-    else{
-      // console.log("path[3]", path[3]);
-      setIsOpen(path[3])
-    }
-  }, [pathname])
+  }, [pathname]);
+  
 
   return (
     <aside className="inset-y-0 right-0 z-10 flex h-screen w-64 flex-col border-l bg-background">
@@ -32,7 +36,7 @@ export default function Sidebar({pathname}) {
       <div className="flex-1 overflow-y-auto px-2 py-4">
         <nav className="grid gap-2">
           <Link
-            href="/supplier/dashboard"
+            href={`/${p}/dashboard`}
             onClick={() => handleClick("dashboard")}
             className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground cursor-pointer ${isOpen === "dashboard" ? "bg-primary hover:bg-primary/90" : ""}`}
             prefetch={false}
@@ -41,7 +45,7 @@ export default function Sidebar({pathname}) {
             <span>بياناتك</span>
           </Link>
           <Link
-            href="/supplier/dashboard/products"
+            href={`/${p}/dashboard/products`}
             onClick={() => handleClick("products")}
             className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground cursor-pointer ${isOpen === "products" ? "bg-primary hover:bg-primary/90" : ""}`}
             prefetch={false}
@@ -69,7 +73,7 @@ export default function Sidebar({pathname}) {
             <span>التجار</span>
           </Link> */}
           <Link
-            href="#"
+            href={`/${p}/dashboard/settings`}
             onClick={() => handleClick("settings")}
             className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground cursor-pointer ${isOpen === "settings" ? "bg-primary hover:bg-primary/90" : ""}`}
             prefetch={false}
