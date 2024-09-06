@@ -39,6 +39,7 @@ import { DeleteItemAlert } from "./DeleteItemAlert"
 import { Pagination } from "@/components/ui/pagination"
 import { useSearchParams } from "next/navigation"
 import ProductsPagination from "@/components/pages/productsList/ProductsPagintaion"
+import { EditProductSheet } from './../pages/mowrdPages/dashboard/products/EditProductSheet';
 export default function ProductsTable(){
 
     const providerId = Cookies.get("provider-id");
@@ -128,9 +129,9 @@ export default function ProductsTable(){
                         <span className="sr-only">Toggle menu</span>
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
+                    <DropdownMenuContent align="center" className="flex flex-col">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem >Edit</DropdownMenuItem>
+                        <DropdownMenuItem asChild><EditProductSheet prod_id={product.id} product={product}/></DropdownMenuItem>
                         <DropdownMenuItem asChild><DeleteItemAlert id={product.id}/></DropdownMenuItem>
                     </DropdownMenuContent>
                     </DropdownMenu>

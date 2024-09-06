@@ -70,3 +70,25 @@ export const deleteProductB2B = async (id) => {
         return { product: [] };
     }
 }
+
+export const updateProductB2B = async (id, data) => {
+    try {
+        console.log("id: " , id);
+        
+        const product = await pb.collection('products_b2b').update(id, data);
+        return { product };
+    } catch (error) {
+        console.error(error);
+        return { product: [] };
+    }
+}
+
+export const createProductB2B = async (data) => {
+    try {
+        const product = await pb.collection('products_b2b').create(data);
+        return { product };
+    } catch (error) {
+        console.error(error);
+        return { product: [] };
+    }
+}
