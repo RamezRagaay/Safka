@@ -39,7 +39,7 @@ import { DeleteItemAlert } from "./DeleteItemAlert"
 import { Pagination } from "@/components/ui/pagination"
 import { useSearchParams } from "next/navigation"
 import ProductsPagination from "@/components/pages/productsList/ProductsPagintaion"
-import { EditProductSheet } from './../pages/mowrdPages/dashboard/products/EditProductSheet';
+import { EditProductSheet } from './EditProductSheet';
 export default function ProductsTable(){
 
     const providerId = Cookies.get("provider-id");

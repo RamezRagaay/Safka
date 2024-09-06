@@ -32,6 +32,25 @@ export const getProducts = async (params) => {
     return { products: [] };
   }
 };
+
+
+export const getSellersProducts = async (id, page) => {
+  try {
+      const perPage = 5;
+      const currPage = parseInt(page) || 1;
+      // console.log(currPage);
+      const products = await pb.collection('products').getList(currPage, perPage, {
+          filter: `seller_id = "${id}"`,
+          // filter: 'price_per_unit >=100 && price_per_unit <= 500 && category = "elecronics"'
+      });
+      return { products };
+  } catch (error) {
+      console.error(error);
+      return { products: [] };
+  }
+}
+
+
 // ? getProducts service end.
 
 // export const getProducts = async (params) => {

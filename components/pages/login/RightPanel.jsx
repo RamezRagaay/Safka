@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
-import { login } from '@/services/user';
+import { login, OAuth2 } from '@/services/user';
 import Cookies from 'js-cookie';
 import { toast, Toaster } from 'react-hot-toast';
 
@@ -26,15 +26,25 @@ const RightPanel = () => {
     resolver: yupResolver(schema),});
 
   const [showPass, setShowPass] = useState(false);
-    // TODO: post request for login and get token and save it in local storage or cookie and redirect to home
-
+  
+  const handleOAuth2 = async () => {
+    try {
+      const auth = await OAuth2();
+      Cookies.set("customer-id", auth.authData.record.id, { expires: 7, secure: true });
+      Cookies.set("customer-username", auth.authData.record.username, { expires: 7, secure: true });
+      Cookies.set("customer-token", auth.authData.token, { expires: 7, secure: true });
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className=" flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
       <Toaster position="bottom-left" reverseOrder={false} />
       <div className='w-[400px]  shadowbox px-20 pb-10 pt-10'>
         <h2 className="text-2xl mb-6 font-bold text-slate-800">تسجيل الدخول</h2>
         <div className="flex gap-4 mb-6">
-          <button className="bg-secondary px-6 py-3 rounded-2xl flex gap-3 items-center font-medium text-xs text-slate-700">
+          <button className="bg-secondary px-6 py-3 rounded-2xl flex gap-3 items-center font-medium text-xs text-slate-700" onClick={handleOAuth2}>
               تسجيل دخول باستخدام جوجل
               <FcGoogle fontSize={22}/>
           </button>
