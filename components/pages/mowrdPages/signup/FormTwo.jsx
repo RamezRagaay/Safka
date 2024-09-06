@@ -22,15 +22,15 @@ const FormTwo = ({formData, onSubmit}) => {
 
   const schema = yup.object().shape({
     photo: yup.mixed()
-    .required("شعار الشركة مطلوب")
-    .test("is-valid-file", "شعار الشركة غير صالح", (value) => {
-        const ext = value[0].name.split(".").pop().toLowerCase();
-        console.log('File value:', value[0].name.split(".").pop().toLowerCase()); // Log the entire value object
-        return value && isValidFileType(ext);
-      })
-    .test("is-valid-size", "شعار الشركة يجب الا يزيد عن 100 كيلو بايت", (value) => {
-      return value && value[0].size <= MAX_FILE_SIZE;
-    })
+    // .required("شعار الشركة مطلوب")
+    // .test("is-valid-file", "شعار الشركة غير صالح", (value) => {
+    //     const ext = value[0].name.split(".").pop().toLowerCase();
+    //     console.log('File value:', value[0].name.split(".").pop().toLowerCase()); // Log the entire value object
+    //     return value && isValidFileType(ext);
+    //   })
+    // .test("is-valid-size", "شعار الشركة يجب الا يزيد عن 100 كيلو بايت", (value) => {
+    //   return value && value[0].size <= MAX_FILE_SIZE;
+    // })
     ,
     orgnization_name: yup.string().required("اسم الشركة مطلوب"),
     Orgnization_phone: yup.string().required(" رقم الشركة مطلوب"),

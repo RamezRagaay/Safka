@@ -52,6 +52,8 @@ const RightPanel = () => {
               Cookies.set("seller-token", response.authData.token, { expires: 7, secure: true });
               Cookies.set("seller-id", response.authData.record.id, { expires: 7, secure: true });
               Cookies.set("seller-username", response.authData.record.username, { expires: 7, secure: true });
+              Cookies.set("role", "seller", { expires: 7, secure: true });
+
               console.log("token saved");
               toast.success('تم التسجيل بنجاح!');
               setTimeout(() => {
