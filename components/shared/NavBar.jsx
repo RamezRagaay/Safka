@@ -75,13 +75,13 @@ const NavBar = () => {
             <button className='transition-all hover:text-primary font-semibold duration-300'>اخر الاخبار</button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>العروض</button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>
-              <Link href="/supplier/login">تسجيل
-               التسجيل كمورد ؟
+              <Link href="/supplier/login">
+                التسجيل كمورد ؟
               </Link>
             </button>
             <button className='transition-all hover:text-primary font-semibold duration-300'>
-              <Link href="/seller/login">تسجيل
-               التسجيل كتاجر ؟
+              <Link href="/seller/login">
+                التسجيل كتاجر ؟
               </Link>
             </button>
           </div>
