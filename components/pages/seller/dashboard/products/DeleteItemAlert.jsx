@@ -1,0 +1,38 @@
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+  } from "@/components/ui/alert-dialog"
+  import { Button } from "@/components/ui/button"
+import { deleteProduct } from "@/services/products"
+  
+  export function DeleteItemAlert({id}) {
+    return (
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button variant="ghost" className="hover:text-red-500 font-normal hover:bg-white">حذف</Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>هل أنت متأكد من حذف المنتج؟</AlertDialogTitle>
+            <AlertDialogDescription>
+              هذا الإجراء لا يمكن التراجع عنه. سيتم حذف المنتج بشكل دائم وإزالة بياتات المنتج من المخازن.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction className="ml-auto" onClick={() => {deleteProduct(id);
+              window.location.reload();
+            }}>حذف المنتج</AlertDialogAction>
+            <AlertDialogCancel >الغاء</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    )
+  }
+  

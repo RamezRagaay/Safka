@@ -1,7 +1,7 @@
-import { SheetDemo } from '@/components/pages/mowrdPages/dashboard/products/AddProductSheet'
+import { SheetDemo } from '@/components/pages/seller/dashboard/products/AddProductSheet'
 import { PlusIcon } from 'lucide-react'
 import React from 'react'
-import ProductsTable from '@/components/shared/productsTable';
+import ProductsTable from '@/components/pages/seller/dashboard/products/productsTable';
 
 const Page = () => {
   return (

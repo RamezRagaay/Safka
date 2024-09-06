@@ -10,9 +10,7 @@ pb.autoCancellation(false);
 export const login = async (data) => {
     try {
         const authData = await pb.collection('users').authWithPassword(data.email, data.password);
-        // console.log(authData);
-        // console.log(pb.authStore.token);
-        // console.log(pb.authStore.model);
+
         return { authData };
     } catch (error) {
         console.error(error);
@@ -34,6 +32,16 @@ export const signup = async (data) => {
     try {
         const user = await pb.collection('users').create(data);
         return { user };
+    } catch (error) {    
+        console.error(error);
+        return { user: null };
+    }
+}
+
+export const OAuth2 = async () => {
+    try {
+        const authData = await pb.collection('users').authWithOAuth2({ provider: 'google' });
+        return { authData };
     } catch (error) {    
         console.error(error);
         return { user: null };
