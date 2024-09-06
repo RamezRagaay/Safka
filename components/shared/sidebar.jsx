@@ -36,7 +36,7 @@ export default function Sidebar({pathname}) {
       <div className="flex-1 overflow-y-auto px-2 py-4">
         <nav className="grid gap-2">
           <Link
-            href="/supplier/dashboard"
+            href={`/${p}/dashboard`}
             onClick={() => handleClick("dashboard")}
             className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground cursor-pointer ${isOpen === "dashboard" ? "bg-primary hover:bg-primary/90" : ""}`}
             prefetch={false}
@@ -73,7 +73,7 @@ export default function Sidebar({pathname}) {
             <span>التجار</span>
           </Link> */}
           <Link
-            href="#"
+            href={`/${p}/dashboard/settings`}
             onClick={() => handleClick("settings")}
             className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground cursor-pointer ${isOpen === "settings" ? "bg-primary hover:bg-primary/90" : ""}`}
             prefetch={false}
