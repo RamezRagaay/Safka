@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { login } from '@/services/seller';
 import Cookies from 'js-cookie';
+import { toast, Toaster } from 'react-hot-toast';
 
 const RightPanel = () => {
   const router = useRouter();
@@ -25,42 +26,49 @@ const RightPanel = () => {
     resolver: yupResolver(schema),});
 
   const [showPass, setShowPass] = useState(false);
-    // TODO: post request for login and get token and save it in local storage or cookie and redirect to home
+
 
   return (
     <div className=" flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
+      <Toaster position="bottom-left" reverseOrder={false} />
       <div className='w-[400px]  shadowbox px-20 pb-10 pt-10'>
-        <h2 className="text-2xl mb-6 font-bold text-slate-800">تسجيل الدخول</h2>
+        <h2 className="text-2xl mb-6 font-bold text-slate-800">تسجيل الدخول كتاجر </h2>
         <div className="flex gap-4 mb-6">
           <button className="bg-secondary px-6 py-3 rounded-2xl flex gap-3 items-center font-medium text-xs text-slate-700">
               تسجيل دخول باستخدام جوجل
               <FcGoogle fontSize={22}/>
           </button>
         </div>
-        <form className="w-full max-w-xs" onSubmit={handleSubmit( async (data) => {
+        <form className="w-full max-w-xs" onSubmit={
+          handleSubmit( async (data) => {
           const dto = {
             email: data.email,
             password: data.password,
           }
           try {
             const response = await login(dto);
-            
             if (response.authData.token) {
               console.log(response);
-              Cookies.set("customer-token", response.authData.token, { expires: 7, secure: true });
-              Cookies.set("customer-id", response.authData.record.id, { expires: 7, secure: true });
-              Cookies.set("customer-username", response.authData.record.username, { expires: 7, secure: true });
+              Cookies.set("seller-token", response.authData.token, { expires: 7, secure: true });
+              Cookies.set("seller-id", response.authData.record.id, { expires: 7, secure: true });
+              Cookies.set("seller-username", response.authData.record.username, { expires: 7, secure: true });
               console.log("token saved");
-              router.push("/");
-              console.log("redirecting to home");
-            }
+              toast.success('تم التسجيل بنجاح!');
+              setTimeout(() => {
+                router.push("/seller/products");
+              }, 1500);    
+              // router.push("/");
+              // console.log("redirecting to home");
+              }
             else {
-              console.log("error:" , errors);
-            }
-          } catch (error) {
+              toast.error('هناك خطأ في البيانات');
+              }
+            } 
+          catch (error) {
             console.log(error);
-          }
-        } )}>
+            }
+          })
+        }>
           <InputWithLabel lable={"البريد الالكتروني"} placeholder={"example@gmail.com"} id="email" type={"email"} register={register} errors={errors}/>
           <div className='relative'>
             <InputWithLabel lable={"كلمة المرور"} placeholder={"*******"} id="password" type={showPass? "text" : "password"} register={register} errors={errors}/>
