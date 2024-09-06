@@ -1,4 +1,4 @@
-name: Deploy to vercel on merge
+name: manual dispatch
 on:
   workflow_dispatch:
 jobs:
