@@ -1,10 +1,12 @@
 import ProductsList from '@/components/pages/productsList/ProductsList'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const page = () => {
 	return (
 		<div>
-			<ProductsList />
+			<Suspense>
+				<ProductsList />
+			</Suspense> 
 		</div>
 	)
 }
