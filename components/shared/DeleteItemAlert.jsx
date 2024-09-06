@@ -16,7 +16,7 @@ import { deleteProductB2B } from "@/services/products_b2b"
     return (
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant="ghost" className="hover:text-red-500 font-normal hover:bg-white text-left">Delete</Button>
+          <Button variant="ghost" className="hover:text-red-500 font-normal hover:bg-white">حذف</Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
@@ -26,7 +26,9 @@ import { deleteProductB2B } from "@/services/products_b2b"
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction className="ml-auto" onClick={() => deleteProductB2B(id)}>حذف المنتج</AlertDialogAction>
+            <AlertDialogAction className="ml-auto" onClick={() => {deleteProductB2B(id);
+              window.location.reload();
+            }}>حذف المنتج</AlertDialogAction>
             <AlertDialogCancel >الغاء</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
