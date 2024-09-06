@@ -1,5 +1,5 @@
 import ProductsList from '@/components/pages/seller/productsB2BList/ProductsB2BList'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const page = () => {
 	return (

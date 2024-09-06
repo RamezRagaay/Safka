@@ -1,6 +1,6 @@
 import { SheetDemo } from '@/components/pages/seller/dashboard/products/AddProductSheet'
 import { PlusIcon } from 'lucide-react'
-import React from 'react'
+import React, { Suspense } from 'react'
 import ProductsTable from '@/components/pages/seller/dashboard/products/productsTable';
 
 const Page = () => {
@@ -22,7 +22,8 @@ const Page = () => {
             </div>
             <Suspense>
                 <ProductsTable/>
-            </Suspense>        </div>
+            </Suspense>
+            </div>
     </>
 )
 }
