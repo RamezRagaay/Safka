@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
+const pb = new PocketBase('https://round-feather-2cdc.safka-middlewares-v0.workers.dev/');
 pb.autoCancellation(false);
 // export const getProducts = async () => {
 //     try {
