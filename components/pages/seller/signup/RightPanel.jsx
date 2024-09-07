@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { signup } from '@/services/seller';
 import { toast, Toaster } from 'react-hot-toast';
+import Cookies from 'js-cookie';
 
 const RightPanel = () => {
   useEffect(() => {

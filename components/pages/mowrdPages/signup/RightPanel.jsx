@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import MultiStepForm from './MultiStepForm'
+import Cookies from 'js-cookie'
 
 
 const RightPanel = () => {
