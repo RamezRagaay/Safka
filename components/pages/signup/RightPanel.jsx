@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button"
 import { InputWithLabel } from '@/components/atoms/InputWithLable';
 import PhoneInput from "react-phone-input-2";
@@ -11,6 +11,19 @@ import { useRouter } from 'next/navigation';
 import { signup } from '@/services/user';
 import { toast, Toaster } from 'react-hot-toast';
 const RightPanel = () => {
+  useEffect(() => {
+    Cookies.remove("customer-token");
+    Cookies.remove("customer-id");
+    Cookies.remove("customer-username");
+    Cookies.remove("provider-token");
+    Cookies.remove("provider-id");
+    Cookies.remove("provider-username");
+    Cookies.remove("seller-token");
+    Cookies.remove("seller-id");
+    Cookies.remove("seller-username");
+    Cookies.remove("role");
+  })
+
   const router = useRouter();
 
   const [phone, setPhone] = useState("");
