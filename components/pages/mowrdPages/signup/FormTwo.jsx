@@ -51,7 +51,7 @@ const FormTwo = ({formData, onSubmit}) => {
   });
 
   return (
-    <form id="form-2" className='w-full ' onSubmit={handleSubmit(onSubmit)}>
+    <form id="form-2" className='w-full p-4 sm:p-10' onSubmit={handleSubmit(onSubmit)}>
       <h2 className="text-2xl mb-6 font-bold text-slate-800 text-center">بيانات الشركة</h2>
       <Input type={"file"} id="photo" {...register("photo")} />
       {errors.companyLogo && <p className="text-red-500 text-sm">{errors.companyLogo.message}</p>}

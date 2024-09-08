@@ -151,7 +151,7 @@ export default function ProductsTable(){
             </TableBody>
             </Table>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="flex flex-col sm:flex-row justify-between items-center">
                 <div className="text-xs text-muted-foreground gap-1">
                 عرض <strong className="ml-1">
                     {(page-1) * 5 + 1}-{page * 5 > totalItems ? totalItems : page * 5 }
@@ -160,7 +160,7 @@ export default function ProductsTable(){
                     <strong className="mr-1">{totalItems}</strong>{" "}
                 منتجات
                 </div>
-                <div>
+                <div className="mt-2 sm:mt-0">
                     <ProductsPagination totalPages={totalPages} />
                 </div>
             </CardFooter>
