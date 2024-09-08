@@ -30,7 +30,7 @@ const FormOne = ({ formData, onSubmit }) => {
   });
 
   return (
-    <form id="form-1" onSubmit={handleSubmit(onSubmit)} className='w-full'>
+    <form id="form-1" onSubmit={handleSubmit(onSubmit)} className='w-full p-4 sm:p-10'>
       <h2 className="text-2xl mb-6 font-bold text-slate-800 text-center">بيانات المورد</h2>
       <InputWithLabel lable={"الاسم الاول"} placeholder={"Ex: Ahmed"} type={"name"} id="username" register={register} errors={errors}/>
       <InputWithLabel lable={"البريد الالكتروني"} placeholder={"example@gmail.com"} id="email" type={"email"} register={register} errors={errors}/>

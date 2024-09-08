@@ -28,8 +28,8 @@ export default function ProductsPagination({ totalPages }) {
   }
 
   return (
-    <Pagination className={`m-5`}>
-      <PaginationContent>
+    <Pagination className="m-5 flex flex-wrap justify-center">
+      <PaginationContent className="flex flex-wrap justify-center">
         <PaginationItem>
           <PaginationPrevious 
             className={`${currentPage === 1 ? 'hidden' : ''} cursor-pointer`}

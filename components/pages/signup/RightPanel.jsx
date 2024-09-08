@@ -64,9 +64,9 @@ const RightPanel = () => {
 
   };
   return (
-    <div className="flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
+    <div className="flex flex-col justify-center items-center p-4 sm:p-10 bg-white shadow-md flex-[2]">
        <Toaster position="bottom-left" reverseOrder={false} />
-      <div className='w-[400px] shadowbox px-20 pb-10 pt-10'>
+      <div className='w-full sm:w-[400px] shadowbox px-4 sm:px-20 pb-10 pt-10'>
 
         <h2 className="text-2xl mb-6">انشاء حساب</h2>
 
