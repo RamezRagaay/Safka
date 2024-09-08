@@ -12,18 +12,18 @@ import { login } from '@/services/provider';
 import Cookies from 'js-cookie';
 
 const RightPanel = () => {
-  useEffect(() => {
-    Cookies.remove("customer-token");
-    Cookies.remove("customer-id");
-    Cookies.remove("customer-username");
-    Cookies.remove("provider-token");
-    Cookies.remove("provider-id");
-    Cookies.remove("provider-username");
-    Cookies.remove("seller-token");
-    Cookies.remove("seller-id");
-    Cookies.remove("seller-username");
-    Cookies.remove("role");
-  })
+  // useEffect(() => {
+  //   Cookies.remove("customer-token");
+  //   Cookies.remove("customer-id");
+  //   Cookies.remove("customer-username");
+  //   Cookies.remove("provider-token");
+  //   Cookies.remove("provider-id");
+  //   Cookies.remove("provider-username");
+  //   Cookies.remove("seller-token");
+  //   Cookies.remove("seller-id");
+  //   Cookies.remove("seller-username");
+  //   Cookies.remove("role");
+  // })
   const router = useRouter();
   const schema = yup.object().shape({
     email: yup.string().email("البريد الالكتروني غير صحيح").required("البريد الالكتروني مطلوب"),
