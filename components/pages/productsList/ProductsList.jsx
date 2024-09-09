@@ -19,11 +19,13 @@ const ProductsList = () => {
   const minPrice = params.get("price>") || '';
   const maxPrice = params.get("price<") || '';
   const category = params.get("categories") || '';
-  const perPage = params.get("perPage") || 2; // * Set default values if needed
+  const perPage = params.get("perPage") || 16; // * Set default values if needed
   const page = params.get("page") || 1;
   const expand = params.get("expand") || "seller_id";
+  const search = params.get("search") || "";
+  // const rsc = params.get("_rsc") || "";
 
-  const  filter = `${minPrice && `price >= ${minPrice}`}${maxPrice && ` && price <= ${maxPrice}`}${ category && (maxPrice || minPrice)&& ` && `}${category && `category = '${category}'`}`
+  const  filter = `${minPrice && `price >= ${minPrice}`}${maxPrice && ` && price <= ${maxPrice}`}${ category && (maxPrice || minPrice)&& ` && `}${category && `category = '${category}' ${((maxPrice || minPrice || category || sort) && search) ? "&&" : ""}`}${search && ` (product_name ~ "${search}" || description ~ "${search}" )`}`;
 
   const paramsObj = { sort, filter, perPage, page, expand };
 
@@ -59,7 +61,7 @@ const ProductsList = () => {
   useEffect(() => {
     setLoading(true);
     productListFetch();
-  }, [sort, minPrice, maxPrice, category, perPage, page]); // * Refined dependency array
+  }, [sort, minPrice, maxPrice, category, perPage, page, search]); // * Refined dependency array
 
   useEffect(() => {
     console.log("prarams : ", paramsObj);

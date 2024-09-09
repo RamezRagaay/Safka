@@ -14,10 +14,7 @@ export const getAllProducts = async () => {
 
 
 // // ? getProducts service start.
-// import PocketBase from 'pocketbase';
 
-// const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
-// pb.autoCancellation(false);
 
 export const getProducts = async (params) => {
   try {
@@ -36,7 +33,7 @@ export const getProducts = async (params) => {
 export const searchProducts = async (query) => {
   try {
     const products = await pb.collection('products').getFullList({
-      filter: `product_name ~ "${query}"`,
+      filter: `product_name ~ "${query}" || description ~ "${query}"`,
       page: 1,
       perPage: 10
     });
@@ -66,22 +63,6 @@ export const getSellersProducts = async (id, page) => {
 
 // ? getProducts service end.
 
-// export const getProducts = async (params) => {
-//   // params : sort -price, priceDesc , createdAtAsc, createdAtDesc
-//   try {
-//     const products = await pb.collection('products').getList(1, 10, {
-//       sort: params.sort,
-//       filter: params.filter,
-//       perPage: params.perPage,
-//       page: params.page,
-//       expand: "seller_id"
-//     });
-//     return { products };
-//   } catch (error) {
-//     console.error(error);
-//     return { products: [] }; 
-//   }
-// }
 
 export const getProduct = async (id) => {
     try {
