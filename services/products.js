@@ -2,15 +2,15 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
 pb.autoCancellation(false);
-// export const getProducts = async () => {
-//     try {
-//       const products = await pb.collection('products').getFullList();
-//       return { products };
-//     } catch (error) {
-//       console.error(error);
-//       return { products: [] }; 
-//     }
-// }
+export const getAllProducts = async () => {
+    try {
+      const products = await pb.collection('products').getFullList();
+      return { products };
+    } catch (error) {
+      console.error(error);
+      return { products: [] }; 
+    }
+}
 
 
 // // ? getProducts service start.
