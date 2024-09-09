@@ -106,11 +106,19 @@ export default function ProductsTable(){
                 <TableCell className="font-medium min-h-[100px]">
                         {product.product_name}
                 </TableCell>
-                <TableCell>
-                    <Badge variant="outline">product.status</Badge>
+                <TableCell >
+                    <Badge variant="outline" className=
+                    {
+                        product.status ? "bg-green-500 text-white w-1/2 flex justify-center " 
+                        :
+                        "bg-red-500 text-white flex justify-center w-1/2"
+                    }>{
+                    product.status ?
+                    "مقبول" : "معلق"
+                    }</Badge>
                 </TableCell>
                 <TableCell className="hidden md:table-cell">
-                    {product.price_per_unit} sar
+                    {product.price} sar
                 </TableCell>
                 <TableCell className="hidden md:table-cell" >
                     {product.unit} {product.quantaty}  
