@@ -19,7 +19,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-gray-800">الشعار</span>
+            <span className="text-2xl font-bold text-gray-800">El-Logo</span>
           </div>
 
 
@@ -53,17 +53,17 @@ export default function Navbar() {
 
 
           <div className="flex items-center space-x-4 space-x-reverse">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-gray-600 hover:text-gray-800 hover:bg-transparent">
               <Heart className="h-5 w-5" />
               <span className="sr-only">قائمة الرغبات</span>
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-gray-600 hover:text-gray-800 hover:bg-transparent">
               <ShoppingCart className="h-5 w-5" />
               <span className="sr-only">سلة التسوق</span>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex gap-2 border-black border-2 rounded-full">
+                <Button variant="ghost" className="flex gap-2 border-black border-2 rounded-full hover:bg-slate-200 duration-200">
                   <User className="h-5 w-5" />
                   <p className='font-medium'>تسجيل دخول</p>
                   <span className="sr-only">قائمة المستخدم</span>
@@ -90,7 +90,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <span className="text-2xl font-bold text-gray-800">الشعار</span>
+              <span className="text-2xl font-bold text-gray-800">El-Logo</span>
             </div>
 
 
@@ -112,9 +112,15 @@ export default function Navbar() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem>الملف الشخصي</DropdownMenuItem>
-                  <DropdownMenuItem>الإعدادات</DropdownMenuItem>
-                  <DropdownMenuItem>تسجيل الخروج</DropdownMenuItem>
+                  <Link href="/login">
+                    <DropdownMenuItem>مستخدم</DropdownMenuItem>
+                  </Link>
+                  <Link href="/seller/login">
+                    <DropdownMenuItem>تاجر</DropdownMenuItem>
+                  </Link>
+                  <Link href="/supplier/login">
+                    <DropdownMenuItem>مورد </DropdownMenuItem>
+                  </Link>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
