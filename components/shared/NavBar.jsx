@@ -11,6 +11,7 @@ import {
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 import { logout } from '@/services/user'
+import SearchBar from './SearchBar'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -58,18 +59,7 @@ export default function Navbar() {
           </div>
 
 
-          <div className="flex-1 max-w-xs mx-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="بحث..."
-                className="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-right"
-              />
-              <button className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <Search className="h-5 w-5 text-gray-400 hover:text-primary duration-300" />
-              </button>
-            </div>
-          </div>
+          <SearchBar className1={"flex-1 max-w-xs mx-4"} className2={"relative"}/>
 
 
           <div className="flex items-center space-x-4 space-x-reverse">
@@ -189,17 +179,8 @@ export default function Navbar() {
 
 
 
-          <div className="border-t border-gray-200 py-3">
-            <div className="relative max-w-md mx-auto">
-              <input
-                type="text"
-                placeholder="بحث..."
-                className="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-right"
-              />
-              <button className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <Search className="h-5 w-5 text-gray-400 hover:text-primary duration-300" />
-              </button>
-            </div>
+          <div className=" border-gray-200 py-3">
+            <SearchBar className1="border-t border-gray-200 py-3" className2="relative max-w-md mx-auto" />
           </div>
 
 

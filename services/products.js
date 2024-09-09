@@ -33,6 +33,19 @@ export const getProducts = async (params) => {
   }
 };
 
+export const searchProducts = async (query) => {
+  try {
+    const products = await pb.collection('products').getFullList({
+      filter: `product_name ~ "${query}"`,
+      page: 1,
+      perPage: 10
+    });
+    return { products };
+  } catch (error) {
+    console.error(error);
+    return { products: [] };
+  }
+}
 
 export const getSellersProducts = async (id, page) => {
   try {
