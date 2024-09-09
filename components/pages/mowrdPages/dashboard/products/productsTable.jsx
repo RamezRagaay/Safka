@@ -106,7 +106,15 @@ export default function ProductsTable(){
                         {product.product_name}
                 </TableCell>
                 <TableCell>
-                    <Badge variant="outline">product.status</Badge>
+                <Badge variant="outline" className=
+                    {
+                        product?.status ? "bg-green-500 text-white w-1/2 flex justify-center " 
+                        :
+                        "bg-red-500 text-white flex justify-center w-1/2"
+                    }>{
+                    product.status ?
+                    "مقبول" : "معلق"
+                    }</Badge>
                 </TableCell>
                 <TableCell className="hidden md:table-cell">
                     {product.price_per_unit} sar
@@ -151,7 +159,7 @@ export default function ProductsTable(){
             </TableBody>
             </Table>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="flex flex-col sm:flex-row justify-between items-center">
                 <div className="text-xs text-muted-foreground gap-1">
                 عرض <strong className="ml-1">
                     {(page-1) * 5 + 1}-{page * 5 > totalItems ? totalItems : page * 5 }
@@ -160,7 +168,7 @@ export default function ProductsTable(){
                     <strong className="mr-1">{totalItems}</strong>{" "}
                 منتجات
                 </div>
-                <div>
+                <div className="mt-2 sm:mt-0">
                     <ProductsPagination totalPages={totalPages} />
                 </div>
             </CardFooter>

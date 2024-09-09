@@ -4,7 +4,7 @@ import { MdDone } from "react-icons/md";
 
 const ProgressBar = ({formNumber}) => {
 	return (
-		<div className="relative w-[60%] flex justify-around items-center left-5">
+		<div className="relative w-[20%] flex justify-around items-center left-5">
 			<div className="absolute h-1.5 bottom-0 bg-slate-400 w-full"></div>
 			<div className={`absolute h-1.5 bottom-0 bg-primary transition-all duration-1000`}
 			style={
@@ -33,7 +33,7 @@ const ProgressBar = ({formNumber}) => {
 			<div className ={`absolute h-10 w-10 rounded-full border-2 transition-all duration-1000
 			${(formNumber>2) ? 'border-primary bg-primary' :
 			(formNumber==2) ? 'border-primary bg-white ' : 'border-slate-500 bg-white '}  
-			flex justify-center items-center z-40  right-[25%] -top-6`}>
+			flex justify-center items-center z-40  right-[100%] -top-6`}>
 				{
 					(formNumber>2) ?
 					<MdDone className="text-white" size={30}/>
@@ -41,7 +41,7 @@ const ProgressBar = ({formNumber}) => {
 					<BiSolidCircle className={`${(formNumber==2) ? 'text-primary' : 'text-slate-500'}`}/>
 				}
 			</div>
-			<div className ={`absolute h-10 w-10 rounded-full border-2 transition-all duration-1000
+			{/* <div className ={`absolute h-10 w-10 rounded-full border-2 transition-all duration-1000
 			${(formNumber>3) ? 'border-primary bg-primary' :
 			(formNumber==3) ? 'border-primary bg-white ' : 'border-slate-500 bg-white '}  
 			flex justify-center items-center z-40 right-[50%] -top-6`}>
@@ -73,7 +73,7 @@ const ProgressBar = ({formNumber}) => {
 					: 
 					<BiSolidCircle className={`${(formNumber==5) ? 'text-primary' : 'text-slate-500'}`}/>
 				}
-			</div>
+			</div> */}
 		</div>
 	)
 }

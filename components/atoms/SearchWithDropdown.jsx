@@ -7,7 +7,7 @@ import { Button } from '../ui/button';
 
 const SearchWithDropDown = () => {
   return (
-    <div className='flex items-center justify-between bg-white rounded w-[600px] py-1'>
+    <div className='flex flex-col sm:flex-row items-center justify-between bg-white rounded w-full sm:w-[600px] py-1'>
       <DropdownMenuRadioGroupDemo
       values={
         ["الكل", "الكترونيات","المنتجات","الخدمات","أجهزة و معدات","مواد غذائية",

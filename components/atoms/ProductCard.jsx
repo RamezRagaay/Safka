@@ -19,12 +19,12 @@ function truncateProductName(name, wordLimit) {
 const ProductCard = ({product}) => {
   const [check, setCheck] = useState(false)
   return (
-    <div className='w-56 h-[400px] border flex flex-col justify-start items-start'
+    <div className='w-full sm:w-56 h-[400px] border flex flex-col justify-start items-start'
     onMouseEnter={()=>setCheck(true)} onMouseLeave={()=>setCheck(false)}
     >
       <div className='h-1/2 w-full relative border-b overflow-hidden'>
         <div className='flex justify-center items-center p-3 max-h-full'>
-          <img src={product.product_images[0]} alt="" />
+          <img src={product.product_images[0]} alt="" className="object-contain max-h-full" />
         </div>
         <div className={` ${ check ? " opacity-100" : "opacity-0" } flex justify-center gap-3 items-center
           bg-[rgba(0,0,0,0.2)] h-full w-full absolute top-0 ease-in-out duration-300 ` } dir='ltr'>

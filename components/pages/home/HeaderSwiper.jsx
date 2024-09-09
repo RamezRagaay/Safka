@@ -26,8 +26,7 @@ const HeaderSwiper = () => {
         }}
         navigation={true}
         autoplay={{
-          delay: 3000,
-          disableOnInteraction: true,
+          delay: 2000,
           pauseOnMouseEnter: true,
         }}
         effect={'fade'}

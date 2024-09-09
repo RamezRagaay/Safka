@@ -61,10 +61,10 @@ const ProductsList = () => {
     productListFetch();
   }, [sort, minPrice, maxPrice, category, perPage, page]); // * Refined dependency array
 
-  // useEffect(() => {
-  //   console.log("prarams : ", paramsObj);
-  //   console.log( "products : ", products);
-  // }, [products]);
+  useEffect(() => {
+    console.log("prarams : ", paramsObj);
+    console.log( "products : ", products);
+  }, [products]);
 
   return (
     <div className='container mx-auto my-10 flex justify-start items-center'>

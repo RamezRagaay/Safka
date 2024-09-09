@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button"
 import { InputWithLabel } from '@/components/atoms/InputWithLable';
 import PhoneInput from "react-phone-input-2";
@@ -10,7 +10,21 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { signup } from '@/services/user';
 import { toast, Toaster } from 'react-hot-toast';
+import Cookies from 'js-cookie';
 const RightPanel = () => {
+  useEffect(() => {
+    Cookies.remove("customer-token");
+    Cookies.remove("customer-id");
+    Cookies.remove("customer-username");
+    Cookies.remove("provider-token");
+    Cookies.remove("provider-id");
+    Cookies.remove("provider-username");
+    Cookies.remove("seller-token");
+    Cookies.remove("seller-id");
+    Cookies.remove("seller-username");
+    Cookies.remove("role");
+  })
+
   const router = useRouter();
 
   const [phone, setPhone] = useState("");
@@ -64,9 +78,9 @@ const RightPanel = () => {
 
   };
   return (
-    <div className="flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
+    <div className="flex flex-col justify-center items-center p-4 sm:p-10 bg-white shadow-md flex-[2]">
        <Toaster position="bottom-left" reverseOrder={false} />
-      <div className='w-[400px] shadowbox px-20 pb-10 pt-10'>
+      <div className='w-full sm:w-[400px] shadowbox px-4 sm:px-20 pb-10 pt-10'>
 
         <h2 className="text-2xl mb-6">انشاء حساب</h2>
 
