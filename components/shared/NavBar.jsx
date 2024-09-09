@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Heart, ShoppingCart, User, Search, Menu, X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
@@ -9,18 +9,38 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from 'next/link'
+import Cookies from 'js-cookie'
+import { logout } from '@/services/user'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [username, setUsername] = useState(null);
+
+  useEffect(() => {
+    const cookieUsername = Cookies.get("customer-username");
+    setUsername(cookieUsername);
+  }, []);
+  
+  const handleLogout = async () => {
+    await logout();
+    Cookies.remove("customer-token");
+    Cookies.remove('customer-id');
+    Cookies.remove('customer-username');
+    window.location.reload();
+  };
 
   return (
+    
     <nav className="shadow-md bg-primary select-none" dir="rtl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="hidden lg:flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-gray-800">El-Logo</span>
-          </div>
+
+          <Link href="/">
+            <div className="flex-shrink-0">
+              <span className="text-2xl font-bold text-gray-800">El-Logo</span>
+            </div>
+          </Link>
 
 
           <div className="flex-1">
@@ -61,7 +81,25 @@ export default function Navbar() {
               <ShoppingCart className="h-5 w-5" />
               <span className="sr-only">سلة التسوق</span>
             </Button>
-            <DropdownMenu>
+            {
+              username ?
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex gap-2 border-black border-2 rounded-full hover:bg-slate-200 duration-200">
+                  <User className="h-5 w-5" />
+                  <p className='font-medium'>{username}</p>
+                  <span className="sr-only">قائمة المستخدم</span>
+                </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                {/* <Link href="/login"> */}
+                  <DropdownMenuItem>الحساب الشخصي</DropdownMenuItem>
+                {/* </Link> */}
+                <DropdownMenuItem onClick={handleLogout}> تسجيل خروج</DropdownMenuItem>
+              </DropdownMenuContent>
+              </DropdownMenu>
+              :
+              <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex gap-2 border-black border-2 rounded-full hover:bg-slate-200 duration-200">
                   <User className="h-5 w-5" />
@@ -80,7 +118,8 @@ export default function Navbar() {
                   <DropdownMenuItem>مورد </DropdownMenuItem>
                 </Link>
               </DropdownMenuContent>
-            </DropdownMenu>
+              </DropdownMenu>
+            }
           </div>
         </div>
 
@@ -89,9 +128,11 @@ export default function Navbar() {
         <div className="lg:hidden">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
+            <Link href="/">
             <div className="flex-shrink-0">
               <span className="text-2xl font-bold text-gray-800">El-Logo</span>
             </div>
+          </Link>
 
 
 
