@@ -35,18 +35,18 @@ export default function SideBar() {
     <>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <Button variant="outline" className="lg:hidden fixed bottom-4 right-4 z-50">
+          <Button variant="outline" className="xl:hidden fixed bottom-4 right-4 z-50">
             <Menu className="h-4 w-4 mr-2" />
             Filters
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] sm:w-[400px] lg:w-[40%] overflow-y-auto">
+        <SheetContent side="right" className="w-[300px] sm:w-[400px] xl:w-[40%] overflow-y-auto">
           <div className="py-4">
             <SidebarContent />
           </div>
         </SheetContent>
       </Sheet>
-      <div className="hidden lg:block w-[300px] border-r">
+      <div className="hidden xl:block w-[300px] border rounded-lg">
         <SidebarContent />
       </div>
     </>

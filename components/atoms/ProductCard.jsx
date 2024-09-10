@@ -203,7 +203,7 @@ const ProductCard = ({ product }) => {
   return (
     <Tooltip.Provider delayDuration={300}>
       <div 
-        className='w-full sm:w-64 h-[400px] border flex flex-col justify-between shadow-sm transition-all duration-300 hover:shadow-lg rounded-lg overflow-hidden'
+        className='w-full xl:w-64 h-[400px] border flex flex-col justify-between shadow-sm transition-all duration-300 hover:shadow-lg rounded-lg overflow-hidden scale-90'
         onMouseEnter={() => setIsHovered(true)} 
         onMouseLeave={() => setIsHovered(false)}
         dir="rtl"
@@ -253,7 +253,7 @@ const ProductCard = ({ product }) => {
 
         <div className='flex-grow p-4 flex flex-col justify-between'>
           <div>
-            <h3 className='font-semibold text-lg mb-2 line-clamp-2'>{truncateProductName(product.product_name, 5)}</h3>
+            <h3 className='font-semibold text-lg mb-2 line-clamp-2 capitalize'>{truncateProductName(product.product_name, 5)}</h3>
             <div className='flex items-center mb-2'>
               <Rating rate={3.5} />
               <p className='mr-2 text-sm text-gray-500'>(35)</p>

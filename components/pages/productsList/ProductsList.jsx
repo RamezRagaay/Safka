@@ -219,10 +219,12 @@ export default function ProductsList() {
 
     return (
       <>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {products.items.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center">
+          {
+            products.items.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          }
         </div>
         <ProductsPagination totalPages={products.totalPages} />
       </>
@@ -230,12 +232,12 @@ export default function ProductsList() {
   }
 
   return (
-    <div className="container mx-auto my-10 rtl:mr-auto rtl:ml-0" dir="rtl">
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/4">
+    <div className="container mx-auto my-10">
+      <div className="flex flex-col justify-center xl:flex-row gap-8">
+        <div className="w-full xl:w-1/4">
           <SideBar />
         </div>
-        <div className="w-full md:w-3/4">
+        <div className="w-full xl:w-3/4">
           {renderContent()}
         </div>
       </div>
