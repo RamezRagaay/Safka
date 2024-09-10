@@ -1,13 +1,10 @@
+import SellerDashboard from '@/components/pages/seller/dashboard/SellerDashboard'
 import React from 'react'
 
 const Page = () => {
   return (
     <>
-        <div>
-            <h1>
-                مرحبا 
-            </h1>
-        </div>
+        <SellerDashboard/>
     </>
 )
 }
