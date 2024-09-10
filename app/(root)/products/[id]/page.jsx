@@ -1,12 +1,12 @@
 import ProductInfo from '@/components/pages/singleProduct/ProductInfo'
 import React from 'react'
 import { getAllProducts } from '@/services/products';
+import SingleProductPage from '@/components/pages/singleProduct/singleProductDetails';
 
 const Page = () => {
   return (
     <div className='container'>
-        <ProductInfo/>
-        
+        <SingleProductPage/>
     </div>
   )
 }
