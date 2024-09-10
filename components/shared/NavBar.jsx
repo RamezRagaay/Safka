@@ -93,9 +93,9 @@ export default function Navbar() {
               :
               <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex gap-2 border-black border-2 rounded-full hover:bg-slate-200 duration-200">
-                  <User className="h-5 w-5" />
-                  <p className='font-medium'>تسجيل دخول</p>
+                <Button variant="ghost" className="flex gap-2 border-slate-600 border-2 rounded-full hover:bg-slate-100 duration-200">
+                  <User className="h-5 w-5 text-slate-600" />
+                  <p className='font-medium text-slate-600'>تسجيل دخول</p>
                   <span className="sr-only">قائمة المستخدم</span>
                 </Button>
               </DropdownMenuTrigger>
