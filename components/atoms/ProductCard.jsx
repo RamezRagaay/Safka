@@ -191,6 +191,7 @@ import { FiHeart } from "react-icons/fi";
 import { BsCart3 } from "react-icons/bs";
 import Rating from './Rating';
 import * as Tooltip from '@radix-ui/react-tooltip';
+import Link from 'next/link';
 
 function truncateProductName(name, wordLimit) {
   const words = name.split(" ");
@@ -251,7 +252,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
 
-        <div className='flex-grow p-4 flex flex-col justify-between'>
+        <Link href={`/products/${product.id}`} className='flex-grow p-4 flex flex-col justify-between'>
           <div>
             <h3 className='font-semibold text-lg mb-2 line-clamp-2 capitalize'>{truncateProductName(product.product_name, 5)}</h3>
             <div className='flex items-center mb-2'>
@@ -263,7 +264,8 @@ const ProductCard = ({ product }) => {
           <div className='mt-auto flex justify-between items-center'>
             <p className='font-bold text-primary text-lg'>{product.price.toFixed(2)} ريال</p>
           </div>
-        </div>
+        </Link>
+        
       </div>
     </Tooltip.Provider>
   )

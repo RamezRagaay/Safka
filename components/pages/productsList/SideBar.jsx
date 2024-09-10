@@ -46,7 +46,7 @@ export default function SideBar() {
           </div>
         </SheetContent>
       </Sheet>
-      <div className="hidden xl:block w-[300px] border rounded-lg">
+      <div className="hidden xl:block w-[250px] border rounded-lg">
         <SidebarContent />
       </div>
     </>

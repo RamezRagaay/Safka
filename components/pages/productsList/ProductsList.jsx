@@ -234,10 +234,10 @@ export default function ProductsList() {
   return (
     <div className="container mx-auto my-10">
       <div className="flex flex-col justify-center xl:flex-row gap-8">
-        <div className="w-full xl:w-1/4">
+        <div className="w-full xl:w-1/5">
           <SideBar />
         </div>
-        <div className="w-full xl:w-3/4">
+        <div className="w-full xl:w-4/5">
           {renderContent()}
         </div>
       </div>
@@ -247,7 +247,7 @@ export default function ProductsList() {
 
 function LoadingSkeleton() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center">
       {[...Array(8)].map((_, index) => (
         <div key={index} className="flex flex-col space-y-3">
           <Skeleton className="h-[200px] w-full rounded-xl" />
