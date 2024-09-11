@@ -21,7 +21,8 @@ export const getProducts = async (params) => {
     const products = await pb.collection('products').getList(params.page, params.perPage, {
       sort: params.sort,
       filter: params.filter,
-      expand: params.expand
+      expand: params.expand,
+      fields: "*,description:excerpt(200,true)"
     });
     return { products };
   } catch (error) {
