@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { Heart, ShoppingCart, User, Search, Menu, X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
@@ -58,8 +58,10 @@ export default function Navbar() {
             </div>
           </div>
 
+          <Suspense>
 
-          <SearchBar className1={"flex-1 max-w-xs mx-4"} className2={"relative"}/>
+            <SearchBar className={"flex-1 max-w-xs mx-4"} />
+          </Suspense>
 
 
           <div className="flex items-center space-x-4 space-x-reverse">
@@ -91,9 +93,9 @@ export default function Navbar() {
               :
               <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex gap-2 border-black border-2 rounded-full hover:bg-slate-200 duration-200">
-                  <User className="h-5 w-5" />
-                  <p className='font-medium'>تسجيل دخول</p>
+                <Button variant="ghost" className="flex gap-2 border-slate-600 border-2 rounded-full hover:bg-slate-100 duration-200">
+                  <User className="h-5 w-5 text-slate-600" />
+                  <p className='font-medium text-slate-600'>تسجيل دخول</p>
                   <span className="sr-only">قائمة المستخدم</span>
                 </Button>
               </DropdownMenuTrigger>
@@ -180,7 +182,9 @@ export default function Navbar() {
 
 
           <div className=" border-gray-200 py-3">
-            <SearchBar className1="border-t border-gray-200 py-3" className2="relative max-w-md mx-auto" />
+            <Suspense>
+              <SearchBar className="border-t border-gray-200 py-3"/>
+            </Suspense>
           </div>
 
 

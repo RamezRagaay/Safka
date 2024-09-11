@@ -1,29 +1,30 @@
 "use client"
+
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-    } from "@/components/ui/card"
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import {
-    DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-    } from "@/components/ui/dropdown-menu"
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-  } from "@/components/ui/table"
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 import Image from "next/image"
 
@@ -39,140 +40,127 @@ import { DeleteItemAlert } from "./DeleteItemAlert"
 import { useSearchParams } from "next/navigation"
 import ProductsPagination from "@/components/pages/productsList/ProductsPagintaion"
 import { EditProductSheet } from './EditProductSheet';
-export default function ProductsTable(){
 
-    const sellerId = Cookies.get("seller-id");
-    // console.log("sellerId: ", sellerId);
-    
-    const params = useSearchParams();
-    const page = params.get("page") || 1;
-    const [products, setProducts] = useState();
-    const [totalPages, setTotalPages] = useState();
-    const [totalItems, setTotalItems] = useState();
-    useEffect(() => {
-        let res;
-        const fetchProducts = async () => {
-            res = await getSellersProducts(sellerId, page)
-            setProducts(res.products.items);
-            setTotalPages(res.products.totalPages);
-            setTotalItems(res.products.totalItems);
-            console.log("res", res);
-        }
-        fetchProducts();
-    }, [page])
-    useEffect(() => {
-        console.log("products: ", products);
-    }, [products])
-    useEffect(() => {
-        console.log("page: ", page);
-    }, [page])
-    return(     
-        <Card className="m-4">
-            <CardContent>
-            <Table>
+export default function ProductsTable() {
+  const sellerId = Cookies.get("seller-id");
+  const params = useSearchParams();
+  const page = params.get("page") || 1;
+  const [products, setProducts] = useState();
+  const [totalPages, setTotalPages] = useState();
+  const [totalItems, setTotalItems] = useState(1);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const res = await getSellersProducts(sellerId, page)
+      setProducts(res.products.items);
+      setTotalPages(res.products.totalPages);
+      setTotalItems(res.products.totalItems);
+    }
+    fetchProducts();
+  }, [page, sellerId])
+
+  return (
+    <Card className="m-4 overflow-hidden">
+      <CardContent className="p-0">
+        <div className="overflow-x-auto">
+          <Table>
             <TableHeader>
-                <TableRow>
+              <TableRow>
                 <TableHead className="hidden w-[100px] sm:table-cell">
-                    <span className="sr-only">صورة المنتج</span>
+                  <span className="sr-only">صورة المنتج</span>
                 </TableHead>
                 <TableHead className="text-right">اسم المنتج</TableHead>
                 <TableHead className="text-right">Status</TableHead>
-                <TableHead className="hidden md:table-cell text-right">
-                    السعر
-                </TableHead>
-                <TableHead className="hidden md:table-cell text-right">
-                    المخزون
-                </TableHead>
-                <TableHead className="hidden md:table-cell text-right">
-                تم إنشاؤه في
-                </TableHead>
+                <TableHead className="hidden md:table-cell text-right">السعر</TableHead>
+                <TableHead className="hidden md:table-cell text-right">المخزون</TableHead>
+                <TableHead className="hidden lg:table-cell text-right">تم إنشاؤه في</TableHead>
                 <TableHead className="text-right">
-                    <span className="sr-only">Actions</span>
+                  <span className="sr-only">Actions</span>
                 </TableHead>
-                </TableRow>
+              </TableRow>
             </TableHeader>
             <TableBody>
-            {products ? products.map((product) => (
+              {products ? products.map((product) => (
                 <TableRow key={product.id}>
-                <TableCell className="hidden sm:table-cell">
+                  <TableCell className="hidden sm:table-cell">
                     <Image
-                    alt="Product image"
-                    className="aspect-square rounded-md object-cover"
-                    height="64"
-                    src='/product-23.jpg'
-                    width="64"
+                      alt="Product image"
+                      className="aspect-square rounded-md object-cover"
+                      height="64"
+                      src='/product-23.jpg'
+                      width="64"
                     />
-                </TableCell>
-                <TableCell className="font-medium min-h-[100px]">
-                        {product.product_name}
-                </TableCell>
-                <TableCell >
-                    <Badge variant="outline" className=
-                    {
-                        product.status ? "bg-green-500 text-white w-1/2 flex justify-center " 
-                        :
-                        "bg-red-500 text-white flex justify-center w-1/2"
-                    }>{
-                    product.status ?
-                    "مقبول" : "معلق"
-                    }</Badge>
-                </TableCell>
-                <TableCell className="hidden md:table-cell">
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    <div className="flex flex-col">
+                      <span>{product.product_name}</span>
+                      <span className="text-sm text-muted-foreground md:hidden">
+                        {product.price} sar | {product.unit} {product.quantaty}
+                      </span>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="outline" className={
+                      product.status
+                        ? "bg-green-500 text-white w-full sm:w-auto flex justify-center"
+                        : "bg-red-500 text-white w-full sm:w-auto flex justify-center"
+                    }>
+                      {product.status ? "مقبول" : "معلق"}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell">
                     {product.price} sar
-                </TableCell>
-                <TableCell className="hidden md:table-cell" >
-                    {product.unit} {product.quantaty}  
-                </TableCell>
-                <TableCell className="hidden md:table-cell">
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    {product.unit} {product.quantaty}
+                  </TableCell>
+                  <TableCell className="hidden lg:table-cell">
                     {product.created}
-                </TableCell>
-                <TableCell>
+                  </TableCell>
+                  <TableCell>
                     <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+                      <DropdownMenuTrigger asChild>
                         <Button
-                        aria-haspopup="true"
-                        size="icon"
-                        variant="ghost"
+                          aria-label="Actions"
+                          size="icon"
+                          variant="ghost"
                         >
-                        <MoreHorizontal className="h-4 w-4" />
-                        <span className="sr-only">Toggle menu</span>
+                          <MoreHorizontal className="h-4 w-4" />
                         </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="center" className="flex flex-col">
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem asChild><EditProductSheet prod_id={product.id} product={product}/></DropdownMenuItem>
-                        <DropdownMenuItem asChild><DeleteItemAlert id={product.id}/></DropdownMenuItem>
-                    </DropdownMenuContent>
+                        <DropdownMenuItem asChild>
+                          <EditProductSheet prod_id={product.id} product={product} />
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <DeleteItemAlert id={product.id} />
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
                     </DropdownMenu>
-                </TableCell>
+                  </TableCell>
                 </TableRow>
-                
-            )) : 
-            <>
-                <TableRow><TableCell><SkeletonBar/></TableCell></TableRow>
-                <TableRow><TableCell><SkeletonBar/></TableCell></TableRow>
-                <TableRow><TableCell><SkeletonBar/></TableCell></TableRow>
-                <TableRow><TableCell><SkeletonBar/></TableCell></TableRow>
-                <TableRow><TableCell><SkeletonBar/></TableCell></TableRow>
-            </>
-            
-            }
+              )) : (
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <TableRow key={index}>
+                      <TableCell colSpan={7}>
+                        <SkeletonBar />
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </>
+              )}
             </TableBody>
-            </Table>
-            </CardContent>
-            <CardFooter>
-                <div className="text-xs text-muted-foreground gap-1">
-                عرض <strong className="ml-1">
-                    {(page-1) * 5 + 1}-{page * 5 > totalItems ? totalItems : page * 5 }
-                    </strong>
-                     من 
-                    <strong className="mr-1">{totalItems}</strong>{" "}
-                منتجات
-                </div>
-                <div>
-                    <ProductsPagination totalPages={totalPages} />
-                </div>
-            </CardFooter>
-        </Card>
-    )
+          </Table>
+        </div>
+      </CardContent>
+      <CardFooter className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-xs text-muted-foreground">
+          عرض <strong>{(page - 1) * 5 + 1}-{Math.min(page * 5, totalItems)}</strong> من <strong>{totalItems}</strong> منتجات
+        </div>
+        <ProductsPagination totalPages={totalPages} />
+      </CardFooter>
+    </Card>
+  )
 }

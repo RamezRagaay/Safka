@@ -1,12 +1,16 @@
 import ProductInfo from '@/components/pages/singleProduct/ProductInfo'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { getAllProducts } from '@/services/products';
+import SingleProductPage from '@/components/pages/singleProduct/singleProductDetails';
+import { Loader2 } from 'lucide-react';
 
-const Page = () => {
+const Page = ({ params }) => {
+  const { id } = params
   return (
     <div className='container'>
-        <ProductInfo/>
-        
+      <Suspense fallback={<Loader2 className="h-10 w-10 animate-spin" />}>
+        <SingleProductPage id={id}/>
+      </Suspense>
     </div>
   )
 }
