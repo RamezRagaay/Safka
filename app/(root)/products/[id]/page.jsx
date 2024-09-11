@@ -58,7 +58,7 @@ export default async function Page({ params }){
               <p className='mr-2 text-sm text-gray-500'>(35)</p>
             </div>
           <p className="text-xl font-bold mb-4">{product?.product?.price} ريال</p>
-        <section className="text-gray-600 mb-6" dangerouslySetInnerHTML={{ __html: product?.product?.description }} />
+        {/* <section className="text-gray-600 mb-6" dangerouslySetInnerHTML={{ __html: product?.product?.description }} /> */}
 
 				
 
