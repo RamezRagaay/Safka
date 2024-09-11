@@ -11,16 +11,16 @@ import ImageMagnifier from './ImageMagnify'
 let product;
 const fetchProduct = async (id) => {
   toString(id);
-  console.log("id: ", id);
+  // console.log("id: ", id);
   let url = `http://localhost:3000/api/product/`;
   url = url + id;
-  console.log("url: ", url);
+  // console.log("url: ", url);
   
   const res = await fetch(url);
   // const res = await import(`@/app/api/product/${id}`);
   if (res.ok) {
     product = await res.json();
-    console.log("fetched product: ????????" , product);
+    // console.log("fetched product: ????????" , product);
     return product;
   } else {
     console.error('Error fetching product');
@@ -29,7 +29,7 @@ const fetchProduct = async (id) => {
 
 
 export default async function SingleProductPage({id}) {
-  console.log(id);
+  // console.log(id);
   let product_ = null;
   try {
     product_ = await fetchProduct(id);
@@ -37,7 +37,7 @@ export default async function SingleProductPage({id}) {
     console.error(error);
   }
   // fetchProduct(id).then((product) => {product_ = product;console.log("product__ from fetch: ", product_);}); // {status: 200, product: product}
-  console.log("product__ ♥ : ", product_); 
+  // console.log("product__ ♥ : ", product_); 
   
   // console.log(product.product.product_name);
   // const [mainImage, setMainImage] = useState('/product-23.jpg')
