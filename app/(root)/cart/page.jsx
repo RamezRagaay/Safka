@@ -2,9 +2,11 @@ import React from 'react'
 import { Minus, Plus, ShoppingCart, Trash2 } from 'lucide-react'
 
 const cartItems = [
-  { id: 1, name: 'تيشيرت أبيض', price: 29.99, quantity: 2, image: '/product-23.jpg' },
-  { id: 2, name: 'جينز أزرق', price: 59.99, quantity: 1, image: '/product-23.jpg' },
-  { id: 3, name: 'حذاء رياضي', price: 89.99, quantity: 1, image: '/product-23.jpg' },
+  { id: 1, name: 'تيشيرت أبيض', price: 29.99, quantity: 2, image: '/placeholder.svg?height=80&width=80' },
+  { id: 2, name: 'جينز أزرق', price: 59.99, quantity: 1, image: '/placeholder.svg?height=80&width=80' },
+  { id: 3, name: 'حذاء رياضي', price: 89.99, quantity: 1, image: '/placeholder.svg?height=80&width=80' },
+  { id: 4, name: 'قبعة سوداء', price: 19.99, quantity: 1, image: '/placeholder.svg?height=80&width=80' },
+  { id: 5, name: 'نظارة شمسية', price: 39.99, quantity: 1, image: '/placeholder.svg?height=80&width=80' },
 ]
 
 export default function CartScreen() {
@@ -13,13 +15,13 @@ export default function CartScreen() {
   const total = subtotal + shipping
 
   return (
-    <div dir="rtl" className="min-h-screen bg-gray-100 py-8">
-      <div className="container mx-auto px-4">
+    <div dir="rtl" className="min-h-screen bg-gray-100">
+      <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-8 text-center">سلة التسوق</h1>
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-2/3">
+        <div className="flex flex-col lg:flex-row-reverse gap-8">
+          <div className="lg:w-2/3 space-y-4">
             {cartItems.map((item) => (
-              <div key={item.id} className="bg-white rounded-lg shadow-md p-6 mb-4 flex items-center">
+              <div key={item.id} className="bg-white rounded-lg shadow-md p-6 flex items-center">
                 <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded" />
                 <div className="mr-4 flex-grow">
                   <h2 className="text-lg font-semibold">{item.name}</h2>
@@ -43,8 +45,8 @@ export default function CartScreen() {
               </div>
             ))}
           </div>
-          <div className="md:w-1/3">
-            <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="lg:w-1/3 lg:order-first">
+            <div className="bg-white rounded-lg shadow-md p-6 lg:sticky lg:top-8">
               <h2 className="text-lg font-semibold mb-4">ملخص الطلب</h2>
               <div className="flex justify-between mb-2">
                 <span>المجموع الفرعي</span>
