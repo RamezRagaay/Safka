@@ -64,6 +64,7 @@ export const getSellersProducts = async (id, page) => {
 // ? getProducts service end.
 
 
+
 export const getProduct = async (id) => {
     try {
       const product = await pb.collection('products').getOne(id);

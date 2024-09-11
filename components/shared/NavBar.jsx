@@ -58,10 +58,10 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* <Suspense> */}
+          <Suspense>
 
             <SearchBar className={"flex-1 max-w-xs mx-4"} />
-          {/* </Suspense> */}
+          </Suspense>
 
 
           <div className="flex items-center space-x-4 space-x-reverse">
@@ -182,9 +182,9 @@ export default function Navbar() {
 
 
           <div className=" border-gray-200 py-3">
-            {/* <Suspense> */}
+            <Suspense>
               <SearchBar className="border-t border-gray-200 py-3"/>
-            {/* </Suspense> */}
+            </Suspense>
           </div>
 
 

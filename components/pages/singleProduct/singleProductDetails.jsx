@@ -1,25 +1,54 @@
-"use client"
-import { useState } from 'react'
 import Image from 'next/image'
 import { Star, Heart, ShoppingCart, ChevronRight, ChevronLeft } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-import ProductImages from './productImages'
+// import ProductImages from './productImages'
 import Rating from '@/components/atoms/Rating'
 import ImageMagnifier from './ImageMagnify'
 
-export default function SingleProductPage() {
-  const [mainImage, setMainImage] = useState('/product-23.jpg')
-  const [quantity, setQuantity] = useState(1)
+let product;
+const fetchProduct = async (id) => {
+  toString(id);
+  console.log("id: ", id);
+  let url = `http://localhost:3000/api/product/`;
+  url = url + id;
+  console.log("url: ", url);
+  
+  const res = await fetch(url);
+  // const res = await import(`@/app/api/product/${id}`);
+  if (res.ok) {
+    product = await res.json();
+    console.log("fetched product: ????????" , product);
+    return product;
+  } else {
+    console.error('Error fetching product');
+  }
+};
 
-  const productImages = [
-    '/placeholder.svg?height=600&width=600',
-    '/placeholder.svg?height=600&width=600',
-    '/placeholder.svg?height=600&width=600',
-    '/placeholder.svg?height=600&width=600',
-  ]
+
+export default async function SingleProductPage({id}) {
+  console.log(id);
+  let product_ = null;
+  try {
+    product_ = await fetchProduct(id);
+  } catch (error) {
+    console.error(error);
+  }
+  // fetchProduct(id).then((product) => {product_ = product;console.log("product__ from fetch: ", product_);}); // {status: 200, product: product}
+  console.log("product__ ♥ : ", product_); 
+  
+  // console.log(product.product.product_name);
+  // const [mainImage, setMainImage] = useState('/product-23.jpg')
+  // const [quantity, setQuantity] = useState(1)
+
+  // const productImages = [
+  //   '/placeholder.svg?height=600&width=600',
+  //   '/placeholder.svg?height=600&width=600',
+  //   '/placeholder.svg?height=600&width=600',
+  //   '/placeholder.svg?height=600&width=600',
+  // ]
 
   return (
     <div dir="rtl" className="container mx-auto px-4 py-8">
@@ -27,7 +56,7 @@ export default function SingleProductPage() {
         {/* Product Images */}
         <div className="md:w-1/2">
           <div className="relative aspect-square mb-4">
-						<ImageMagnifier src={mainImage} width={'100%'} height={'100%'} />
+						{/* <ImageMagnifier src={"mainImage"} width={'100%'} height={'100%'} /> */}
 					{/* <ReactImageMagnify
 						{...{
 							smallImage: {
@@ -57,9 +86,9 @@ export default function SingleProductPage() {
               className="rounded-lg"
             /> */}
           </div>
-          <div className="grid grid-cols-4 gap-2">
+          {/* <div className="grid grid-cols-4 gap-2">
               <button
-                onClick={() => setMainImage('/product-24.jpg')}
+                // onClick={() => setMainImage('/product-24.jpg')}
                 className="relative aspect-square"
               >
                 <Image
@@ -71,7 +100,7 @@ export default function SingleProductPage() {
                 />
               </button>
               <button
-                onClick={() => setMainImage('/product-25.jpg')}
+                // onClick={() => setMainImage('/product-25.jpg')}
                 className="relative aspect-square"
               >
                 <Image
@@ -82,22 +111,24 @@ export default function SingleProductPage() {
                   className="rounded-md"
                 />
               </button>
-          </div>
+          </div> */}
         </div>
 
 
 
         {/* Product Details */}
         <div className="md:w-1/2">
-          <h1 className="text-3xl font-bold mb-4">منتج رائع متعدد الاستخدامات</h1>
+          <h1 className="text-3xl font-bold mb-4">{product_?.product?.product_name}</h1>
           <div className='flex items-center mb-2'>
               <Rating rate={3.5} />
               <p className='mr-2 text-sm text-gray-500'>(35)</p>
             </div>
-          <p className="text-xl font-bold mb-4">199.99 ريال</p>
-          <p className="text-gray-600 mb-6">
+          <p className="text-xl font-bold mb-4">{product_?.product?.price} ريال</p>
+          {/* <p className="text-gray-600 mb-6">
+            {product_?.product?.description}
             هذا المنتج الرائع متعدد الاستخدامات هو إضافة مثالية لمنزلك. مصنوع من مواد عالية الجودة، يوفر الأداء والمتانة التي تحتاجها. مع تصميمه الأنيق، سيتناسب بسهولة مع أي ديكور.
-          </p>
+          </p> */}
+        <section className="text-gray-600 mb-6" dangerouslySetInnerHTML={{ __html: product_?.product?.description }} />
 
 					
 					{/* Color Selection V0.1.0 */}

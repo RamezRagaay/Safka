@@ -273,7 +273,7 @@ function NoProductsFound() {
   return (
     <div className="text-center py-10">
       <h2 className="text-2xl font-semibold mb-2">No products found</h2>
-      <p className="text-muted-foreground">Try adjusting your search or filter to find what you're looking for.</p>
+      <p className="text-muted-foreground">Try adjusting your search or filter to find what you are looking for.</p>
     </div>
   )
 }
