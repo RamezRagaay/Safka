@@ -90,7 +90,7 @@ export default function SearchBar({ className = "" }) {
           {results.map((product) => (
             <Link
               key={product.id}
-              href={`/${product.id}`}
+              href={`/products/${product.id}`}
               className="block hover:bg-gray-100 p-2 transition duration-150 ease-in-out"
             >
               <div className="flex items-center">

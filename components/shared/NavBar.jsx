@@ -69,10 +69,12 @@ export default function Navbar() {
               <Heart className="h-5 w-5" />
               <span className="sr-only">قائمة الرغبات</span>
             </Button>
-            <Button variant="ghost" size="icon" className="text-gray-600 hover:text-gray-800 hover:bg-transparent">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="sr-only">سلة التسوق</span>
-            </Button>
+            <Link href="/cart">
+              <Button variant="ghost" size="icon" className="text-gray-600 hover:text-gray-800 hover:bg-transparent">
+                <ShoppingCart className="h-5 w-5" />
+                <span className="sr-only">سلة التسوق</span>
+              </Button>
+            </Link>
             {
               username ?
               <DropdownMenu>
