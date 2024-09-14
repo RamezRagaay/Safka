@@ -30,6 +30,7 @@ export default function ProductImages({product}) {
           <div className="grid grid-cols-4 gap-2">
               {product.product_images.map((image, index) => (
                 <button
+                key={index}
                 onClick={() => setMainImage(`${img_base_url}${product.product_images[index]}`)}
                 className="relative aspect-square"
               >
