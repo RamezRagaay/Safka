@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
         onMouseLeave={() => setIsHovered(false)}
         dir="rtl"
       >
-        <div className='relative h-1/2 w-full border-b overflow-hidden bg-gray-50'>
+        <div className='relative h-1/2 w-full border-b overflow-hidden bg-white'>
           <div className='flex justify-center items-center p-3 h-full'>
             <img src={product.product_images[0] ?
             `https://round-feather-2cdc.safka-middlewares-v0.workers.dev/api/files/${product.collectionId}/${product.id}/${product.product_images[0]}`

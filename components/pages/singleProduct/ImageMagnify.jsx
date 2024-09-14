@@ -5,9 +5,9 @@ function ImageMagnifier({
   src,
   width,
   height,
-  magnifierHeight = 200,
-  magnifieWidth = 200,
-  zoomLevel =2,
+  magnifierHeight = 150,
+  magnifieWidth = 150,
+  zoomLevel = 1.5,
 }) {
   const [[x, y], setXY] = useState([0, 0]);
   const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
@@ -15,7 +15,7 @@ function ImageMagnifier({
 
   return (
     <div
-			className="overflow-hidden cursor-zoom-in"
+			className="overflow-hidden cursor-zoom-in border rounded-lg"
       style={{
         position: "relative",
         height: height,
@@ -25,7 +25,7 @@ function ImageMagnifier({
       <img
         src={src}
         style={{ height: height, width: width }}
-        className="object-contain"
+        className="object-contain p-5 z-20"
         onMouseEnter={(e) => {
           const elem = e.currentTarget;
           const { width, height } = elem.getBoundingClientRect();
@@ -35,7 +35,6 @@ function ImageMagnifier({
         onMouseMove={(e) => {
           const elem = e.currentTarget;
           const { top, left } = elem.getBoundingClientRect();
-
           const x = e.pageX - left - window.pageXOffset;
           const y = e.pageY - top - window.pageYOffset;
           setXY([x, y]);
@@ -47,6 +46,7 @@ function ImageMagnifier({
       />
 
       <div
+        className="p-10"
         style={{
           display: showMagnifier ? "" : "none",
           position: "absolute",
@@ -60,9 +60,9 @@ function ImageMagnifier({
           backgroundColor: "white",
           backgroundImage: `url(${src})`,
           backgroundRepeat: "no-repeat",
-          backgroundSize: `${imgWidth * zoomLevel}px ${
-            imgHeight * zoomLevel
-          }px`,
+          backgroundSize: `
+          ${imgWidth * zoomLevel}px 
+          ${imgHeight * zoomLevel}px`,
           backgroundPositionX: `${-x * zoomLevel + magnifieWidth / 2}px`,
           backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
         }}
