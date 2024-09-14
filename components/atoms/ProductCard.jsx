@@ -12,6 +12,9 @@ function truncateProductName(name, wordLimit) {
   return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + " ..." : name;
 }
 
+
+// ! https://thispersondoesnotexist.com/
+
 const ProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false)
 
