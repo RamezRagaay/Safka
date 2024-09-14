@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     
-    <nav className="shadow-md bg-primary select-none" dir="rtl">
+    <nav className="shadow-md bg-primary select-none sticky top-0 z-50" dir="rtl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="hidden lg:flex items-center justify-between h-16">
           {/* Logo */}
