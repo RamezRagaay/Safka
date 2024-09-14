@@ -29,7 +29,7 @@ const schema = yup.object().shape({
   quantity: yup.number().optional().positive("يجب أن تكون الكمية قيمة موجبة").integer("يجب أن تكون الكمية عدد صحيح"),
   category: yup.string(),
   description: yup.string(),
-  image: yup.mixed(),
+  image: yup.mixed().required("صورة المنتج مطلوبة"),
 });
 
 export function EditProductSheet({prod_id, product}) {
@@ -52,7 +52,7 @@ export function EditProductSheet({prod_id, product}) {
       "unit" : data?.unit,
       "quantaty" : data?.quantity,
       "description" : data?.description,
-      "image" : data?.image,
+      "product_images" : data?.image,
       "category" : data?.category
     }
     
@@ -61,11 +61,10 @@ export function EditProductSheet({prod_id, product}) {
         console.log("prod_id: ", prod_id);
         
       await updateProduct(prod_id, dto);
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.error(error);
     }
-    // await createProductB2B(dto);
   };
 
   return (
@@ -119,7 +118,7 @@ export function EditProductSheet({prod_id, product}) {
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="image" className="text-right">صور المنتج</Label>
-              <Input type="file" defaultValue={product?.image} id="image" {...register('image')} />
+              <Input type="file" defaultValue={product?.image} id="image" {...register('image')} multiple/>
               {errors.image && <p className="text-red-500">{errors.image.message}</p>}
             </div>
           </div>
@@ -127,9 +126,7 @@ export function EditProductSheet({prod_id, product}) {
             <SheetClose asChild>
               <Button type="submit" onClick={(e) => 
                 {
-                  if(errors.category || errors.description || errors.image || errors.name || errors.price || errors.quantity || errors.unit){
-                    e.preventDefault();
-                  }
+                  // (errors.category || errors.description || errors.image || errors.name || errors.price || errors.quantity || errors.unit) &&e.preventDefault();
                 }
               }>اضف المنتج</Button>
             </SheetClose>

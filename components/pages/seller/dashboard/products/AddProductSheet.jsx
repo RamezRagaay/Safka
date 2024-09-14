@@ -29,7 +29,7 @@ const schema = yup.object().shape({
   quantity: yup.number().required("الكمية مطلوبة").positive("يجب أن تكون الكمية قيمة موجبة").integer("يجب أن تكون الكمية عدد صحيح"),
   category: yup.string().required("التصنيف مطلوب"),
   description: yup.string().required("وصف المنتج مطلوب"),
-  image: yup.mixed(),
+  image: yup.mixed().required("صورة المنتج مطلوب"),
 });
 
 export function SheetDemo() {
@@ -51,7 +51,7 @@ export function SheetDemo() {
       "unit" : data.unit,
       "quantaty" : data.quantity,
       "description" : data.description,
-      "image" : data.image,
+      "product_images" : data.image,
       "seller_id" : seller_id,
       "category" : data.category
 
@@ -60,7 +60,7 @@ export function SheetDemo() {
     console.log("dto: ", dto);
     try {
       await createProduct(dto);
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.error(error);
     }
@@ -118,7 +118,7 @@ export function SheetDemo() {
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="image" className="text-right">صور المنتج</Label>
-              <Input type="file" id="image" {...register('image')} />
+              <Input type="file" id="image" {...register('image')} multiple/>
               {errors.image && <p className="text-red-500">{errors.image.message}</p>}
             </div>
           </div>

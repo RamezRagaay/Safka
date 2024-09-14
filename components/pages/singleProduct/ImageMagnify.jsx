@@ -25,6 +25,7 @@ function ImageMagnifier({
       <img
         src={src}
         style={{ height: height, width: width }}
+        className="object-contain"
         onMouseEnter={(e) => {
           const elem = e.currentTarget;
           const { width, height } = elem.getBoundingClientRect();

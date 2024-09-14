@@ -18,7 +18,7 @@ export const getProducts = async (params) => {
     const products = await pb.collection('products').getList(params.page, params.perPage, {
       sort: params.sort,
       filter: params.filter,
-      expand: params.expand,
+      expand: "seller_id",
       fields: "*,description:excerpt(200,true)"
     });
     return { products };
@@ -89,7 +89,6 @@ export const createProduct = async (product) => {
 }
 
 export const updateProduct = async (id, product) => {
-  // TODO: validate product
   // "product_name": "test",
   // "quantaty": "test",
   // "unit": "test",

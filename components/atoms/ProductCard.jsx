@@ -13,11 +13,11 @@ function truncateProductName(name, wordLimit) {
 }
 
 
-// ! https://thispersondoesnotexist.com/
 
 const ProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false)
-
+  console.log(product);
+    
   return (
     <Tooltip.Provider delayDuration={300}>
       <div 
@@ -28,7 +28,10 @@ const ProductCard = ({ product }) => {
       >
         <div className='relative h-1/2 w-full border-b overflow-hidden bg-gray-50'>
           <div className='flex justify-center items-center p-3 h-full'>
-            <img src={`https://round-feather-2cdc.safka-middlewares-v0.workers.dev/api/files/${product.collectionId}/${product.id}/${product.product_images[0]}`} alt={product.product_name} className="object-contain max-h-full max-w-full rounded transition-transform duration-300 hover:scale-105" />
+            <img src={product.product_images[0] ?
+            `https://round-feather-2cdc.safka-middlewares-v0.workers.dev/api/files/${product.collectionId}/${product.id}/${product.product_images[0]}`
+          :
+          '/no_img_avaliable.jpg'} alt={product.product_name} className="object-contain max-h-full max-w-full rounded transition-transform duration-300 hover:scale-105" />
           </div>
           <div className={`absolute inset-0 flex justify-center items-center gap-3 bg-black bg-opacity-20 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
             <Tooltip.Root>
@@ -76,7 +79,7 @@ const ProductCard = ({ product }) => {
               <Rating rate={3.5} />
               <p className='mr-2 text-sm text-gray-500'>(35)</p>
             </div>
-            <p className='text-sm text-gray-600 mb-2'>التاجر: {product.supplier}</p>
+            <p className='text-sm text-gray-600 mb-2'>التاجر: {product?.expand?.seller_id?.name}</p>
           </div>
           <div className='mt-auto flex justify-between items-center'>
             <p className='font-bold text-primary text-lg'>{product.price.toFixed(2)} ريال</p>

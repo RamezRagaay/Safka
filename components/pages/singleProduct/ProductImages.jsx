@@ -1,70 +1,49 @@
-import { useState } from 'react'
+'use client'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Star, Heart, ShoppingCart, ChevronRight, ChevronLeft } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+// import ProductImages from './productImages'
+import Rating from '@/components/atoms/Rating'
+import ImageMagnifier from './ImageMagnify'
 const productImages = [
   "/product-23.jpg",
 	"/product-24.jpg",
 	"/product-25.jpg",
 ]
 
-export default function ProductPage() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % productImages.length)
-  }
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + productImages.length) % productImages.length)
-  }
+export default function ProductImages({product}) {
+  const img_base_url = `https://round-feather-2cdc.safka-middlewares-v0.workers.dev/api/files/${product.collectionId}/${product.id}/`
+  const [mainImage, setMainImage] = useState(`${img_base_url}${product.product_images[0]} `)
+  
+  const [quantity, setQuantity] = useState(1)
+  
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex flex-col md:flex-row gap-8">
-        {/* Thumbnails */}
-        <div className="md:w-1/5 order-2 md:order-1">
-          <div className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-y-auto md:h-[600px]">
-            {productImages.map((img, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImageIndex(index)}
-                className={`relative w-20 h-20 flex-shrink-0 ${index === currentImageIndex ? 'ring-2 ring-primary' : ''}`}
+    <div className="md:w-1/2">
+          <div className="relative aspect-square mb-4">
+          <ImageMagnifier src={mainImage} width={'100%'} height={'100%'} />
+          </div>
+          <div className="grid grid-cols-4 gap-2">
+              {product.product_images.map((image, index) => (
+                <button
+                onClick={() => setMainImage(`${img_base_url}${product.product_images[index]}`)}
+                className="relative aspect-square"
               >
                 <Image
-                  src={img}
-                  alt={`Product thumbnail ${index + 1}`}
+                  src={`${img_base_url}${product.product_images[index]}`}
+                  alt={`Product image`}
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="contain"
                   className="rounded-md"
                 />
               </button>
-            ))}
+              ))}
+              
           </div>
         </div>
-
-        {/* Main Image */}
-        <div className="md:w-4/5 order-1 md:order-2">
-          <div className="relative aspect-video">
-            <Image
-              src={productImages[currentImageIndex]}
-              alt="Product main image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
-            />
-            <div className="absolute inset-0 flex items-center justify-between p-4">
-              <Button variant="outline" size="icon" onClick={prevImage} className="rounded-full bg-background/80 backdrop-blur-sm">
-                <ChevronLeft className="h-6 w-6" />
-              </Button>
-              <Button variant="outline" size="icon" onClick={nextImage} className="rounded-full bg-background/80 backdrop-blur-sm">
-                <ChevronRight className="h-6 w-6" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   )
 }

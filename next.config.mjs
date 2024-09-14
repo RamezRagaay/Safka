@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['ip-intel.gl.at.ply.gg'], // Add your external domain here
+        domains: ['round-feather-2cdc.safka-middlewares-v0.workers.dev'], // Add your external domain here
     },
 };
 
