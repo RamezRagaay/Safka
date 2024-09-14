@@ -1,9 +1,9 @@
 import PocketBase from 'pocketbase';
-import dotenv from 'dotenv';
 
-dotenv.config();
 
-const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
+const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_API);
+
+
 pb.autoCancellation(false);
 
 export const login = async (data) => {

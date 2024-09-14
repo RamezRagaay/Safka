@@ -1,6 +1,7 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://ip-intel.gl.at.ply.gg:30265/');
+const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_API);
+
 pb.autoCancellation(false);
 export const getAllProducts = async () => {
     try {
@@ -11,10 +12,6 @@ export const getAllProducts = async () => {
       return { products: [] }; 
     }
 }
-
-
-// // ? getProducts service start.
-
 
 export const getProducts = async (params) => {
   try {
@@ -60,9 +57,6 @@ export const getSellersProducts = async (id, page) => {
       return { products: [] };
   }
 }
-
-
-// ? getProducts service end.
 
 
 
