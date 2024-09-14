@@ -53,6 +53,7 @@ const RightPanel = () => {
         console.log(response);
         Cookies.set("provider-token", response.authData.token, { expires: 7, secure: true });
         Cookies.set("provider-id", response.authData.record.id, { expires: 7, secure: true });
+        Cookies.set("provider-name", response.authData.record.username, { expires: 7, secure: true });
         Cookies.set("role", "supplier", { expires: 7, secure: true });
         console.log("token saved");
         router.push("/supplier/dashboard");
