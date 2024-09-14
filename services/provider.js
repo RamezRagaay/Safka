@@ -1,8 +1,8 @@
 import PocketBase from 'pocketbase';
 
 
-const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_API);
 
+const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_API);
 
 pb.autoCancellation(false);
 
