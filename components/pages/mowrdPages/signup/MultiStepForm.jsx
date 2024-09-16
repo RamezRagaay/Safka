@@ -78,7 +78,7 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-around items-center bg-white shadow-md flex-[2] select-none h-auto sm:h-[1000px] p-4 sm:p-10">
+    <div className="w-full flex flex-col justify-around items-center bg-white  flex-[2] select-none h-auto sm:h-[1000px] p-4 sm:p-10">
       <Toaster />
       <h1 className="text-3xl font-bold mb-4">تسجيل حساب مورد جديد</h1>
       <ProgressBar formNumber={formNumber} />

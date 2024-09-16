@@ -61,7 +61,7 @@ export function EditProductSheet({prod_id, product}) {
         console.log("prod_id: ", prod_id);
         
       await updateProduct(prod_id, dto);
-      // window.location.reload();
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
