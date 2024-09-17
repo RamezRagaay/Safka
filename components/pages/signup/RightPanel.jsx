@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import { signup } from '@/services/user';
 import { toast, Toaster } from 'react-hot-toast';
 import Cookies from 'js-cookie';
+import HomeButton from '@/components/shared/HomeButton';
 const RightPanel = () => {
   useEffect(() => {
     Cookies.remove("customer-token");
@@ -79,6 +80,7 @@ const RightPanel = () => {
   };
   return (
     <div className="flex flex-col justify-center items-center p-4 sm:p-10 bg-white shadow-md flex-[2]">
+      <HomeButton className={'absolute top-10 right-10'}/>
        <Toaster position="bottom-left" reverseOrder={false} />
       <div className='w-full sm:w-[400px] shadowbox px-4 sm:px-20 pb-10 pt-10'>
 

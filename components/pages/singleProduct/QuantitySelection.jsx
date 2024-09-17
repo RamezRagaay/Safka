@@ -22,6 +22,7 @@ const QuantitySelection = ({maxQuantity}) => {
             type="number"
             id="quantity"
             Value={quantity}
+            
             onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
             className="w-16 text-center mx-2"
             />

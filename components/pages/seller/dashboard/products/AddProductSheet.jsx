@@ -60,7 +60,7 @@ export function SheetDemo() {
     console.log("dto: ", dto);
     try {
       await createProduct(dto);
-      // window.location.reload();
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }

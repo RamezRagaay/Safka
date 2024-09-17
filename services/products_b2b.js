@@ -1,6 +1,10 @@
 import PocketBase, { cookieParse } from 'pocketbase';
 
+
 const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_API);
+
+
+
 
 
 pb.autoCancellation(false)
@@ -31,6 +35,7 @@ export const searchProductsB2B = async (query) => {
 }
 
 export const getProductsB2B = async (params) => {
+    
   try {
     const products = await pb.collection('products_b2b').getList(params.page, params.perPage, {
       sort: params.sort,
@@ -41,6 +46,7 @@ export const getProductsB2B = async (params) => {
   } 
 	catch (error) {
     console.error(error);
+    
     return { products: [] };
   }
 };

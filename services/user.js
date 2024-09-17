@@ -2,8 +2,8 @@ import PocketBase from 'pocketbase';
 import Cookies from 'js-cookie';
 
 
-const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_API);
 
+const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_API);
 pb.autoCancellation(false);
 
 export const login = async (data) => {

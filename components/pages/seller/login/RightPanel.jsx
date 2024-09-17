@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import { login } from '@/services/seller';
 import Cookies from 'js-cookie';
 import { toast, Toaster } from 'react-hot-toast';
+import HomeButton from '@/components/shared/HomeButton';
 
 const RightPanel = () => {
   // useEffect(() => {
@@ -42,6 +43,7 @@ const RightPanel = () => {
 
   return (
     <div className=" flex flex-col justify-center items-center p-10 bg-white shadow-md flex-[2]">
+      <HomeButton className={'absolute top-10 right-10'}/>
       <Toaster position="bottom-left" reverseOrder={false} />
       <div className='w-[400px]  shadowbox px-20 pb-10 pt-10'>
         <h2 className="text-2xl mb-6 font-bold text-slate-800">تسجيل الدخول كتاجر </h2>
