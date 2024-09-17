@@ -35,5 +35,24 @@
 }
 
 .user-select-none{
-	user-select: none;
+	-webkit-user-select: none;
+	user-select: none; 
+}
+
+.header-section1 img {
+	transform: scale(1);
+	transition: 0.3s ease-in-out;
+}
+.header-section1:hover img {
+	transform: scale(1.1);
+	transition: 0.3s ease-in-out;
+}
+
+.header-section2 img {
+	/* transform: scale(1.2); */
+	transition: 0.3s ease-in-out;
+}
+.header-section2:hover img {
+	transform: scale(1.3);
+	transition: 0.3s ease-in-out;
 }
