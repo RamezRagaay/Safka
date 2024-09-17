@@ -32,7 +32,7 @@ export default async function Page({ params }){
       <div className="flex flex-col md:flex-row gap-8">
         {/* Product Images */}
         {
-        product.product.product_images.length > 0 ?
+        product?.product?.product_images?.length > 0 ?
         <ProductImages product={product.product}/>
         :
         <img src={'/no_img_avaliable.jpg'} className="w-3/5 h-3/5" />
@@ -53,7 +53,7 @@ export default async function Page({ params }){
 				
 
           {/* Quantity Selection */}
-          <QuantitySelection maxQuantity={product.product.quantaty}/>
+          <QuantitySelection maxQuantity={product?.product?.quantaty}/>
 
           {/* Add to Cart and Wishlist */}
           <div className="flex gap-4 mb-6">
