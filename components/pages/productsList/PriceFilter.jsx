@@ -17,6 +17,7 @@ const PriceFilter = () => {
     current.set('price>', priceRange[0]);
     current.set('price<', priceRange[1]);
     router.push(`?${current.toString()}`);
+    current.delete('page');
   };
 
   const handleValueChange = (value) => {

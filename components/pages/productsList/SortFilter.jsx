@@ -17,9 +17,11 @@ const SortFilter = () => {
     const current = new URLSearchParams(searchParams);
     if (value) {
       current.set('sort', value);
+      current.delete('page');
     }
     else {
       current.delete('sort');
+      current.delete('page');
     }
     // Navigate to the new URL with updated search params
     router.push(`?${current.toString()}`);
