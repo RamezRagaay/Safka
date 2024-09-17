@@ -16,6 +16,19 @@ pb.autoCancellation(false)
 //     }
 // }   
 
+export const searchProductsB2B = async (query) => {
+  try {
+    const products = await pb.collection('products_b2b').getFullList({
+      filter: `product_name ~ "${query}" || description ~ "${query}"`,
+      page: 1,
+      perPage: 10
+    });
+    return { products };
+  } catch (error) {
+    console.error(error);
+    return { products: [] };
+  }
+}
 
 export const getProductsB2B = async (params) => {
   try {

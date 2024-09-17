@@ -116,6 +116,7 @@ import Link from 'next/link'
 import Cookies from 'js-cookie'
 import { logout } from '@/services/user'
 import SearchBar from '../../../shared/SearchBar'
+import SearchBarB2B from './SearchBarB2B'
 
 export default function NavbarB2B() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -164,7 +165,7 @@ export default function NavbarB2B() {
 
           <Suspense>
 
-            {/* <SearchBar className={"flex-1 max-w-xs mx-4"} /> */}
+            <SearchBarB2B className={"flex-1 max-w-xs mx-4"} />
           </Suspense>
 
 
@@ -289,7 +290,7 @@ export default function NavbarB2B() {
 
           <div className=" border-gray-200 py-3">
             <Suspense>
-              <SearchBar className="border-t border-gray-200 py-3"/>
+              <SearchBarB2B className="border-t border-gray-200 py-3"/>
             </Suspense>
           </div>
 
