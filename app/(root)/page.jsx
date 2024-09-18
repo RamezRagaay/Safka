@@ -1,3 +1,4 @@
+import BrandsCarousel from '@/components/pages/home/BrandsCarousel'
 import CategoryCarousel from '@/components/pages/home/CategoryCarousel'
 import Header from '@/components/pages/home/Header'
 import HotDeals from '@/components/pages/home/HotDeals'
@@ -10,6 +11,7 @@ const Page = () => {
       <Header/>
       <CategoryCarousel />
       <HotDeals/>
+      <BrandsCarousel/>
     </div>
   )
 }
