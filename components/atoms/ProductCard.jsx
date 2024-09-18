@@ -75,7 +75,7 @@ const ProductCard = ({ product , offer=undefined}) => {
             </div>
           </div>
 
-          <Link href={`/products/${product.id}`} className='flex-grow p-4 flex flex-col justify-between'>
+          <Link href={`/products/${product.id}`} className='flex-grow p-4 flex flex-col justify-between bg-white'>
             <div>
               <h3 className='font-semibold text-lg mb-2 line-clamp-2 capitalize'>{truncateProductName(product.product_name, 5)}</h3>
               <div className='flex items-center mb-2'>

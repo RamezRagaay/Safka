@@ -27,7 +27,7 @@ export function Example() {
 }
 
 const categories = [
-  { name: "مواد غذائية", image: "/90460-2pk-Frozen-Handheld-2D-Steak-Bakes-2-1.png" , value:"food" },
+  { name: "مواد غذائية", image: "/food.png" , value:"food" },
   { name: "اثاث و مفروشات", image: "/CS105__98037.jpg" ,value:"furniture"} ,
   { name: "منظفات", image: "/1.png" ,value:"cleaning"} ,
   { name: "اجهزة و معدات", image: "/pngtree-modern-carpentry-tools-2d-vector-png-image_8861781.png" , value:"tools"} ,
@@ -57,17 +57,17 @@ export default function CategoryCarousel() {
               <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-0">
                   <div className="flex flex-col sm:flex-row items-center sm:h-48">
-                    <div className="relative w-full sm:w-1/2 aspect-video sm:h-full bg-white">
+                    <div className="relative w-full sm:w-1/2 aspect-video sm:h-full bg-white ">
                       <Image
                         src={category.image}
                         alt={category.name}
                         fill
-                        className="object-cover p-5"
+                        className="object-contain p-5"
                       />
                     </div>
                     <div className="w-full h-full flex flex-col justify-center items-center sm:w-1/2 p-6 bg-gradient-to-r from-primary/10 to-primary/5">
-                      <h3 className="text-lg font-semibold text-center sm:text-right text-primary mb-3">{category.name}</h3>
-											<Link href={`/products?categories=${category.value}`} className="text-sm text-muted-foreground text-center sm:text-right hover:underline">استكشف المزيد</Link>
+                      <h3 className="text-base font-bold text-center sm:text-right text-primary mb-3 ">{category.name}</h3>
+											<Link href={`/products?categories=${category.value}`} className="text-xs text-muted-foreground text-center sm:text-right hover:underline">استكشف المزيد</Link>
                     </div>
                   </div>
                 </CardContent>
@@ -75,8 +75,8 @@ export default function CategoryCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="w-14 h-14 hover:bg-primary hover:text-primary-foreground duration-300 -left-7" />
-        <CarouselNext className="w-14 h-14 hover:bg-primary hover:text-primary-foreground duration-300 -right-7" />
+        <CarouselPrevious className="w-14 h-14 hover:bg-primary hover:text-white duration-300 -left-7" />
+        <CarouselNext className="w-14 h-14 hover:bg-primary hover:text-white duration-300 -right-7" />
       </Carousel>
     </div>
   )
