@@ -51,8 +51,8 @@ export default function HotDeals() {
         <CarouselContent className="-ml-4">
             {
                 products?.items?.map((product) => (
-                    <CarouselItem  className=" md:basis-1/2 lg:basis-1/3 xl:basis-1/4 select-none">
-                    <ProductCard key={product.id} product={product} offer={50} />
+                    <CarouselItem key={product.id} className=" md:basis-1/2 lg:basis-1/3 xl:basis-1/4 select-none">
+                      <ProductCard key={product.id} product={product} offer={50} />
                     </CarouselItem>
                 ))
             }
