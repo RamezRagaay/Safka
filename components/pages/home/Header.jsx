@@ -7,8 +7,8 @@ const Header = () => {
     return (
     <div className='flex max-lg:flex-col min-h-screen m-10 gap-5 select-none'>
         <header className='flex flex-col gap-5 '>
-					<section className=' bg-primary flex flex-col  justify-between items-center rounded-2xl hover:shadow-xl shadow-md duration-300 header-section1'>
-                <img src={'/furniture1.webp'} alt="logo" className='px-5 object-cover w-full' />
+					<section className='h-1/2 bg-primary flex flex-col  justify-around items-center rounded-2xl hover:shadow-xl shadow-md duration-300 header-section1'>
+                <img src={'/furniture1.webp'} alt="logo" className='px-5 object-cover w-[60%]' />
                 <div className='flex flex-row justify-between w-full p-5 items-center text-center md:text-left md:items-start gap-5'>
                     <h1 className='text-xl md:text-2xl font-bold text-white  text-right'>
                         الأثات المنزلي
@@ -20,7 +20,7 @@ const Header = () => {
                     </Link>
                 </div>
             </section>
-            <section className=' bg-primary/70 flex flex-col  justify-between items-center rounded-2xl hover:shadow-xl shadow-md duration-300 header-section1'>
+            <section className='h-1/2 bg-primary/70 flex flex-col  justify-around items-center rounded-2xl hover:shadow-xl shadow-md duration-300 header-section1'>
                 <img src={'/furniture2.png'} alt="logo" className='px-5 object-cover w-[60%]' />
                 <div className='flex flex-row justify-between w-full p-5 items-center text-center md:text-left md:items-start gap-5'>
                     <h1 className='text-xl md:text-2xl font-bold text-white  text-right'>
