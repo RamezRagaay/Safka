@@ -12,20 +12,6 @@ import {
 import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
 
-export function Example() {
-  return (
-    <Carousel
-      plugins={[
-        Autoplay({
-          delay: 2000,
-        }),
-      ]}
-    >
-      // ...
-    </Carousel>
-  )
-}
-
 const categories = [
   { name: "مواد غذائية", image: "/food.png" , value:"food" },
   { name: "اثاث و مفروشات", image: "/CS105__98037.jpg" ,value:"furniture"} ,
