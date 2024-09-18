@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const Header = () => {
     return (
-    <div className='flex max-lg:flex-col min-h-screen m-10 gap-5'>
+    <div className='flex max-lg:flex-col min-h-screen m-10 gap-5 select-none'>
         <header className='flex flex-col gap-5 '>
 					<section className=' bg-primary flex flex-col  justify-between items-center rounded-2xl hover:shadow-xl shadow-md duration-300 header-section1'>
                 <img src={'/furniture1.webp'} alt="logo" className='px-5 object-cover w-full' />

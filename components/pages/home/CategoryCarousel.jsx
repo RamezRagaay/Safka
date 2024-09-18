@@ -36,7 +36,7 @@ const categories = [
 
 export default function CategoryCarousel() {
   return (
-    <div className="w-full max-w-[95%] mx-auto py-16 container">
+    <div className="w-full max-w-[95%] mx-auto py-16 container select-none">
 			<h1 className="text-2xl font-bold mb-4">التصنيفات :</h1>
       <Carousel
         opts={{

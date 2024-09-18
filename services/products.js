@@ -17,8 +17,8 @@ export const getAllProducts = async () => {
 export const getProducts = async (params) => {
   try {
     const products = await pb.collection('products').getList(params.page, params.perPage, {
-      sort: params.sort,
-      filter: params.filter,
+      sort: params.sort || "",
+      filter: params.filter || "",
       expand: "seller_id",
       fields: "*,description:excerpt(200,true)"
     });
