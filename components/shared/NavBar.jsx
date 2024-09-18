@@ -136,8 +136,10 @@ export default function Navbar() {
                 <span className="sr-only">قائمة الرغبات</span>
               </Button>
               <Button variant="ghost" size="icon">
-                <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">سلة التسوق</span>
+                <Link href="/cart">
+                  <ShoppingCart className="h-5 w-5" />
+                  <span className="sr-only">سلة التسوق</span>
+                </Link>
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
