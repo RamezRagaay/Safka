@@ -1,6 +1,6 @@
-# Safka - Arabic E-Commerce Platform
+# Safka - Arabic E-Commerce Frontend
 
-Welcome to **Safka**, an advanced Arabic e-commerce platform designed to provide a seamless online shopping experience. Safka enables users to browse, search, filter, and sort products efficiently. Suppliers and sellers have access to a comprehensive dashboard to manage their inventory effectively.
+Welcome to **Safka**, an advanced Arabic e-commerce frontend designed to provide a seamless online shopping experience. Safka enables users to browse, search, filter, and sort products efficiently. Suppliers and sellers have access to a comprehensive dashboard to manage their inventory effectively.
 
 We strive to enhance **Search Engine Optimization (SEO)** and leverage **Server-Side Rendering (SSR)** to improve performance and visibility.
 
