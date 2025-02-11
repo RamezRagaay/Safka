@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Safka - Arabic E-Commerce Platform
 
-## Getting Started
+Welcome to **Safka**, an advanced Arabic e-commerce platform designed to provide a seamless online shopping experience. Safka enables users to browse, search, filter, and sort products efficiently. Suppliers and sellers have access to a comprehensive dashboard to manage their inventory effectively.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+### For Users
+- **Landing Page**: A well-designed homepage introducing Safka.
+- **Product Page**: Functionality to search, filter, and sort products for an enhanced shopping experience.
+- **Authentication**: Secure sign-up and login features to access personalized shopping services.
+
+### For Sellers & Suppliers
+- **Dashboard**: A control panel for tracking and managing inventory.
+- **Manage Products**: Features to add, delete, edit, and view stock items efficiently.
+
+---
+
+## Project Structure
+```
+(root)
+│── api/           # API handlers and service calls
+│── login/         # Login functionality
+│── seller/        # Seller-specific pages & components
+│── signup/        # User registration module
+│── supplier/      # Supplier dashboard & management
+│── globals.css    # Global styles
+│── layout.js      # Layout components
+│── not-found.js   # Custom 404 page
+│── favicon.ico    # Project favicon
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technologies Used
+- **Next.js** (for a fast and efficient frontend experience)
+- **Tailwind CSS** (for a modern and responsive UI design)
+- **React.js** (component-based architecture for scalability)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+## Getting Started
+### Clone the Repository
+```bash
+git clone https://github.com/your-username/safka.git
+cd Safka
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Install Dependencies
+```bash
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Run the Project
+```bash
+npm run dev
+```
+Access **Safka** at: [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For further inquiries or collaboration, please contact:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Ramez Ragaay**\
+[GitHub Profile](https://github.com/RamezRagaay)
+- **Ephraim Youssef**\
+[GitHub Profile](https://github.com/EphraimYoussef)
+
+---
+
